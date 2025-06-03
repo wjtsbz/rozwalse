@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rage Room Kraków - Rozwal To Wszystko!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth; /* Globalne płynne przewijanie */
+        }
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #111111; 
+            color: #F5F5F5; 
+        }
+        .font-bebas {
+            font-family: 'Bebas Neue', cursive;
+        }
+        .font-chakra {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1920x1080/FF0000/000000?text=TUTAJ+WIDEO+W+TLE');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(17, 17, 17, 0.8); 
+            backdrop-filter: blur(10px);
+        }
+        .btn-primary {
+            @apply inline-block bg-red-600 hover:bg-red-700 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105;
+        }
+        .btn-secondary {
+            @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-bebas text-xl py-2 px-6 rounded-lg transform transition-all duration-300 hover:scale-105;
+        }
+        .section-title {
+            @apply font-bebas text-5xl md:text-7xl text-center mb-4 text-red-500;
+        }
+        .section-subtitle {
+            @apply font-chakra text-xl md:text-2xl text-center text-gray-300 mb-12 max-w-3xl mx-auto;
+        }
+        .package-card {
+            @apply bg-neutral-800 p-6 rounded-xl shadow-2xl border-2 border-neutral-700 hover:border-red-500 transition-all duration-300 flex flex-col justify-between;
+        }
+        
+        .cracked-text {
+            text-shadow: 1px 1px 0px #FF6B6B, 
+                         -1px -1px 0px #FF6B6B,
+                         1px -1px 0px #FF6B6B,
+                         -1px 1px 0px #FF6B6B,
+                         0 0 5px #FF4500, 
+                         0 0 10px #FF4500;
+            animation: flicker 3s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                1px 1px 0px #FF6B6B,
+                -1px -1px 0px #FF6B6B,
+                1px -1px 0px #FF6B6B,
+                -1px 1px 0px #FF6B6B,
+                0 0 5px #FF4500,
+                0 0 10px #FF4500,
+                0 0 2px rgba(255,0,0,0.2), 
+                0 0 5px rgba(255,0,0,0.2),
+                0 0 10px rgba(255,0,0,0.2);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+        
+        .glass-break-sound:hover::after {
+            content: "🔊 (dźwięk tłuczonego szkła)";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .hero-headline-styling { 
+            @apply font-bebas text-white uppercase mb-12 md:mb-16 lg:mb-20; 
+            line-height: 0.90 !important; 
+        }
+        .hero-line-uniform { 
+            font-size: 85px !important; 
+        }
+        .hero-line-spaced { 
+            font-size: 85px !important; 
+            margin-top: 10px !important;
+        }
+        .hero-line-legalnie { 
+            font-size: 100px !important; 
+            margin-top: 10px !important; 
+        }
+
+        @keyframes subtle-pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.03); 
+                opacity: 0.9;  
+            }
+        }
+
+        .legalnie-pulse-effect {
+            animation: subtle-pulse 2.2s infinite ease-in-out;
+            display: inline-block; 
+            will-change: transform, opacity; 
+        }
+
+        @media (max-width: 768px) { 
+            .hero-line-uniform { font-size: 55px !important; }
+            .hero-line-spaced { 
+                font-size: 55px !important; 
+                margin-top: 5px !important;
+            }
+            .hero-line-legalnie { 
+                font-size: 65px !important; 
+                margin-top: 5px !important;
+            }
+        }
+        @media (max-width: 640px) { 
+            .hero-line-uniform { font-size: 40px !important; }
+            .hero-line-spaced { 
+                font-size: 40px !important; 
+                margin-top: 5px !important;
+            }
+            .hero-line-legalnie { 
+                font-size: 50px !important; 
+                margin-top: 5px !important;
+            }
+        }
+        .step-description {
+            @apply text-gray-300 text-justify leading-relaxed; 
+        }
+        .step-description-accent {
+            @apply block mt-2 text-sm text-gray-300; 
+        }
+        .step-number-container {
+            @apply w-20 h-20 bg-red-700 border-2 border-orange-500 text-white flex items-center justify-center rounded-full mx-auto mb-6 shadow-lg relative overflow-hidden;
+            background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent);
+            background-size: 30px 30px;
+        }
+        .step-number {
+            @apply font-bebas text-5xl text-orange-300; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+        }
+
+        .jak-to-dziala-bottom-headline-container {
+             @apply text-center mt-20 mb-8; 
+        }
+        .jak-to-dziala-bottom-headline {
+            @apply font-bebas text-5xl md:text-6xl lg:text-7xl text-white uppercase;
+            line-height: 1.1 !important; 
+        }
+        
+        section[id] {
+            scroll-margin-top: 100px; 
+        }
+
+
+    </style>
+</head>
+<body class="bg-neutral-900 text-gray-100">
+
+    <nav id="navbar" class="nav-sticky p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="img/Logo_1.png" alt="Logo Rage Room Kraków" class="h-12 md:h-16 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x50/111111/FF0000?text=LOGO';">
+            <div class="hidden md:flex space-x-6 items-center font-bebas text-xl">
+                <a href="#jak-to-dziala" class="nav-link hover:text-red-500 transition-colors">Jak to działa?</a>
+                <a href="#pakiety" class="nav-link hover:text-red-500 transition-colors">Pakiety</a>
+                <a href="#dlaczego-my" class="nav-link hover:text-red-500 transition-colors">Dlaczego My?</a>
+                <a href="#galeria" class="nav-link hover:text-red-500 transition-colors">Galeria</a>
+                <a href="#kontakt" class="nav-link hover:text-red-500 transition-colors">Kontakt</a>
+                <a href="#regulamin" class="nav-link hover:text-red-500 transition-colors">Regulamin</a>
+                <a href="#rezerwacja-hero" class="nav-link btn-primary !py-2 !px-6 glass-break-sound-btn">ZAREZERWUJ WYBUCH!</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-800">
+            <a href="#jak-to-dziala" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Jak to działa?</a>
+            <a href="#pakiety" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Pakiety</a>
+            <a href="#dlaczego-my" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Dlaczego My?</a>
+            <a href="#galeria" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Galeria</a>
+            <a href="#kontakt" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Kontakt</a>
+            <a href="#regulamin" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Regulamin</a>
+            <a href="#rezerwacja-hero" class="nav-link block py-4 px-4 text-lg bg-red-600 hover:bg-red-700 text-center transition-colors font-bebas glass-break-sound-btn">ZAREZERWUJ WYBUCH!</a>
+        </div>
+    </nav>
+
+    <header id="rezerwacja-hero" class="hero-bg min-h-screen flex flex-col items-center justify-center text-center p-6 relative">
+        <div class="absolute inset-0 bg-black opacity-60"></div> 
+        <div class="relative z-10">
+            <h1 class="hero-headline-styling cracked-text"> 
+                <span class="block hero-line-uniform">MASZ DOŚĆ?</span>
+                <span class="block hero-line-spaced">ROZWAL SE.</span>
+                <span class="block hero-line-spaced">WSZYSTKO.</span>
+                <span class="block hero-line-legalnie legalnie-pulse-effect">LEGALNIE.</span> 
+            </h1>
+            <p class="font-chakra text-xl md:text-2xl text-orange-400 mt-10 md:mt-12 lg:mt-16 mb-12 max-w-3xl mx-auto">
+                Twoje bezpieczne miejsce do regulowania stresu 🔥 <br> Uwolnij go w kontrolowanym chaosie!
+            </p>
+            <div>
+                
+                <a href="#jak-to-dziala" class="nav-link btn-secondary glass-break-sound-btn">Zobacz, jak to działa ↓</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="jak-to-dziala" class="py-20 bg-neutral-800">
+        <div class="container mx-auto px-6">
+            <p class="section-subtitle text-center text-justify"> 
+                Rage Room to bezpieczna przestrzeń, gdzie możesz wyładować gniew, stres i frustrację – niszcząc rzeczy bez konsekwencji. Po prostu wbij, ubierz się i... rozwal, co chcesz.
+            </p>
+            
+            <h3 class="font-bebas text-4xl md:text-5xl text-center text-white mb-10 mt-16">PROSTA DROGA DO TOTALNEJ <span class="text-red-600">DEMOLKI</span> W 4 KROKACH:</h3>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="p-6 bg-neutral-900 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                    <div class="step-number-container">
+                        <span class="step-number">1</span>
+                    </div>
+                    <h3 class="font-bebas text-3xl text-orange-500 my-4 text-center">WYBIERZ PAKIET</h3>
+                    <p class="step-description flex-grow">10 małych przedmiotów (szklanki, talerze, klawiatury) i 1 broń do wyboru. <span class="step-description-accent">🧨 Idealny dla początkujących. Trochę potłuc, trochę się pośmiać.</span></p>
+                </div>
+                <div class="p-6 bg-neutral-900 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                    <div class="step-number-container">
+                        <span class="step-number">2</span>
+                    </div>
+                    <h3 class="font-bebas text-3xl text-orange-500 my-4 text-center">ZAŁÓŻ STRÓJ OCHRONNY</h3>
+                    <p class="step-description flex-grow">Twoje bezpieczeństwo to nasz priorytet. Zapewniamy pełne wyposażenie. <span class="step-description-accent">Ochrona: pełen strój, maska, rękawice – czujesz się jak boss w grze.</span></p>
+                </div>
+                <div class="p-6 bg-neutral-900 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                    <div class="step-number-container">
+                        <span class="step-number">3</span>
+                    </div>
+                    <h3 class="font-bebas text-3xl text-orange-500 my-4 text-center">WYBIERZ SWÓJ SPRZĘT</h3>
+                    <p class="step-description flex-grow">Szeroki arsenał do wyboru – od klasycznego kija po ciężki młot. <span class="step-description-accent">Ty decydujesz, czym władasz.</span></p>
+                </div>
+                <div class="p-6 bg-neutral-900 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                    <div class="step-number-container">
+                        <span class="step-number">4</span>
+                    </div>
+                    <h3 class="font-bebas text-3xl text-orange-500 my-4 text-center">ROZWAL WSZYSTKO</h3>
+                    <p class="step-description flex-grow">Telewizory, talerze, monitory, drukarki. To Twoja chwila. Ty robisz robotę, a my posprzątamy.</p>
+                </div>
+            </div>
+            <div class="mt-16 text-center">
+                <h3 class="font-bebas text-4xl text-white mb-6">Zobacz <span class="text-red-500">EMOCJE</span> naszych klientów!</h3>
+                <div class="aspect-w-16 aspect-h-9 max-w-2xl mx-auto bg-neutral-700 rounded-lg shadow-lg flex items-center justify-center">
+                    <p class="text-xl text-gray-400">TUTAJ WIDEO TIKTOK/INSTAGRAM REEL (30s)</p>
+                </div>
+            </div>
+
+            <div class="jak-to-dziala-bottom-headline-container">
+                <h2 class="jak-to-dziala-bottom-headline">
+                    POKÓJ FURII.<br><span class="text-orange-500">ZERO OCEN.</span><br>TYLKO TY I MŁOT.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="pakiety" class="py-20 bg-neutral-900">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title !mb-12">PAKIETY <span class="text-orange-500">DEMOLKI</span> – WYBIERZ SWÓJ POZIOM FURII</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="package-card">
+                    <div>
+                        <img src="https://placehold.co/600x400/FF4500/FFFFFF?text=Mini+Wkurw" alt="Mini Wkurw" class="rounded-t-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="font-bebas text-4xl text-red-500 mb-3">MINI WKURW</h3>
+                        <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">10</span> małych przedmiotów (szklanki, talerze, klawiatury) </p>
+                        <p class="text-gray-300 mb-4"><span class="font-bold text-orange-400">1</span> broń do wyboru</p>
+                        <p class="text-gray-400 text-sm mb-6">🧨 Idealny dla początkujących. Trochę potłuc, trochę się pośmiać.</p>
+                    </div>
+                    <div class="mt-auto">
+                        <p class="font-bebas text-5xl text-white mb-6">99 PLN</p>
+                        <a href="#" class="btn-primary w-full text-center glass-break-sound-btn">REZERWUJ PAKIET</a>
+                    </div>
+                </div>
+                <div class="package-card border-orange-500 ring-2 ring-orange-500">
+                    <div>
+                        <img src="https://placehold.co/600x400/FF0000/FFFFFF?text=Korpo-Destrukcja" alt="Korpo-Destrukcja" class="rounded-t-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="font-bebas text-4xl text-red-500 mb-3">KORPO-DESTRUKCJA</h3>
+                        <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">20</span> przedmiotów + <span class="font-bold text-orange-400">1</span> większy (np. monitor, mikrofalówka) </p>
+                        <p class="text-gray-300 mb-4"><span class="font-bold text-orange-400">2</span> bronie do wyboru</p>
+                        <p class="text-gray-400 text-sm mb-6">🔥 Dla tych, co mieli spotkanie z szefem lub Zooma o 8:00.</p>
+                    </div>
+                    <div class="mt-auto">
+                         <p class="font-bebas text-5xl text-white mb-6">199 PLN</p>
+                        <a href="#" class="btn-primary w-full text-center glass-break-sound-btn">REZERWUJ PAKIET</a>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div>
+                        <img src="https://placehold.co/600x400/8B0000/FFFFFF?text=Ex-Partner+Edition" alt="Ex-Partner Edition" class="rounded-t-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="font-bebas text-4xl text-red-500 mb-3">EX-PARTNER EDITION</h3>
+                        <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">30</span> przedmiotów, specjalne dodatki: ramki ze zdjęciami, serduszka, misie, lista utworów „Zerwanie 2000s” w tle</p>
+                        <p class="text-gray-300 mb-4"><span class="font-bold text-orange-400">20</span> minut terapeutycznej demolki</p>
+                        <p class="text-gray-400 text-sm mb-6">💔 Potrzebujesz domknięcia? Masz je. Z odłamkami.</p>
+                    </div>
+                     <div class="mt-auto">
+                        <p class="font-bebas text-5xl text-white mb-6">249 PLN</p>
+                        <a href="#" class="btn-primary w-full text-center glass-break-sound-btn">REZERWUJ PAKIET</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dlaczego-my" class="py-20 bg-neutral-800">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title !mb-12">POZBĄDŹ SIĘ STRESU. <span class="text-orange-500">POCZUJ MOC.</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <span class="text-red-500 text-3xl mr-4 font-bebas transform -rotate-6">💥</span>
+                            <p class="font-chakra text-2xl text-white">Nie chodź na terapię – <span class="font-bold text-orange-400">ROZWAL MIKROFALÓWKĘ!</span></p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 text-3xl mr-4 font-bebas transform rotate-3">💥</span>
+                            <p class="font-chakra text-2xl text-white">Lepsze niż <span class="font-bold text-orange-400">KRZYCZENIE W PODUSZKĘ!</span></p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 text-3xl mr-4 font-bebas transform -rotate-4">💥</span>
+                            <p class="font-chakra text-2xl text-white">Fizyczna ulga dla <span class="font-bold text-orange-400">PSYCHICZNEGO STRESU!</span></p>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-red-500 text-3xl mr-4 font-bebas transform rotate-2">💥</span>
+                            <p class="font-chakra text-2xl text-white">Poczuj <span class="font-bold text-orange-400">EUFORIĘ</span> po totalnej demolce!</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="space-y-8">
+                    <div class="bg-neutral-900 p-6 rounded-lg shadow-lg border-l-4 border-red-500">
+                        <p class="text-gray-300 italic">"Niesamowite doświadczenie! Wyszłam stamtąd jak nowo narodzona. Polecam każdemu!"</p>
+                        <p class="text-right font-bold text-orange-400 mt-2">- Kasia S.</p>
+                    </div>
+                    <div class="bg-neutral-900 p-6 rounded-lg shadow-lg border-l-4 border-red-500">
+                        <p class="text-gray-300 italic">"Idealne miejsce, żeby wyładować frustrację po ciężkim tygodniu w pracy. Młot robi robotę!"</p>
+                        <p class="text-right font-bold text-orange-400 mt-2">- Piotr Z.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="py-20 bg-neutral-900">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title !mb-12">JESTEŚ TYLKO TY, SPRZĘT I REGULOWANIE <span class="text-orange-500">STRESU.</span></h2>
+            <p class="text-center text-xl text-gray-300 mb-10">Śledź nas na <a href="#" class="text-red-500 hover:text-orange-500 font-bold">Instagramie</a> i <a href="#" class="text-red-500 hover:text-orange-500 font-bold">TikToku</a>! #RageRoomKrakow</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <img src="https://placehold.co/400x400/FF6347/FFFFFF?text=Demolka+1" alt="Zdjęcie z Rage Room 1" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 aspect-square object-cover">
+                <img src="https://placehold.co/400x400/FF0000/FFFFFF?text=Radość+Po" alt="Zdjęcie z Rage Room 2" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 aspect-square object-cover">
+                <img src="https://placehold.co/400x400/FFA500/FFFFFF?text=Akcja!" alt="Zdjęcie z Rage Room 3" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 aspect-square object-cover">
+                <img src="https://placehold.co/400x400/DC143C/FFFFFF?text=Team+Building" alt="Zdjęcie z Rage Room 4" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 aspect-square object-cover">
+            </div>
+             <div class="text-center mt-12">
+                <a href="#" class="btn-primary glass-break-sound-btn">ZOBACZ WIĘCEJ W NASZEJ GALERII</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="py-20 bg-neutral-800">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title !mb-12">ZNAJDŹ NAS. <span class="text-orange-500">ROZWAL SE.</span></h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-bebas text-3xl text-white mb-4">Dane Kontaktowe</h3>
+                    <p class="text-gray-300 mb-2"><strong class="text-orange-400">Adres:</strong> ul. Furiacka 666, 30-007 Kraków</p>
+                    <p class="text-gray-300 mb-2"><strong class="text-orange-400">Godziny Otwarcia:</strong></p>
+                    <ul class="list-disc list-inside text-gray-300 ml-4 mb-4">
+                        <li>Pon-Pt: 16:00 - 22:00</li>
+                        <li>Sob-Niedz: 12:00 - 23:00</li>
+                    </ul>
+                    <p class="text-gray-300 mb-2"><strong class="text-orange-400">Telefon:</strong> <a href="tel:+48123456789" class="hover:text-red-500">+48 123 456 789</a></p>
+                    <p class="text-gray-300 mb-4"><strong class="text-orange-400">Email:</strong> <a href="mailto:kontakt@rageroomkrakow.pl" class="hover:text-red-500">kontakt@rageroomkrakow.pl</a></p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-orange-500 hover:text-red-500 text-3xl">FB</a>
+                        <a href="#" class="text-orange-500 hover:text-red-500 text-3xl">IG</a>
+                        <a href="#" class="text-orange-500 hover:text-red-500 text-3xl">TT</a>
+                    </div>
+                    <div class="mt-8 h-64 bg-neutral-700 rounded-lg shadow-lg flex items-center justify-center">
+                        <p class="text-xl text-gray-400">TUTAJ OSADZONA MAPA GOOGLE</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bebas text-3xl text-white mb-4">Napisz do Nas</h3>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-orange-400">Imię</label>
+                            <input type="text" name="name" id="name" class="mt-1 block w-full bg-neutral-700 border-neutral-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 text-white" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-orange-400">Email</label>
+                            <input type="email" name="email" id="email" class="mt-1 block w-full bg-neutral-700 border-neutral-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 text-white" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-orange-400">Wiadomość</label>
+                            <textarea name="message" id="message" rows="4" class="mt-1 block w-full bg-neutral-700 border-neutral-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 text-white" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-primary w-full glass-break-sound-btn">WYŚLIJ WIADOMOŚĆ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="regulamin" class="py-20 bg-neutral-900">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title !mb-12">TWOJE BEZPIECZEŃSTWO – <span class="text-orange-500">NASZ PRIORYTET</span></h2>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 bg-neutral-800 rounded-lg shadow-lg">
+                    <div class="icon-placeholder">🛡️</div>
+                    <h3 class="font-bebas text-2xl text-orange-500 my-3">STRÓJ OCHRONNY</h3>
+                    <p class="text-gray-300">Kompletny strój ochronny dla każdego uczestnika.</p>
+                </div>
+                <div class="p-6 bg-neutral-800 rounded-lg shadow-lg">
+                    <div class="icon-placeholder">🔒</div>
+                    <h3 class="font-bebas text-2xl text-orange-500 my-3">ZAMKNIĘTA SALA</h3>
+                    <p class="text-gray-300">Prywatne, bezpieczne pomieszczenie tylko dla Ciebie.</p>
+                </div>
+                <div class="p-6 bg-neutral-800 rounded-lg shadow-lg">
+                    <div class="icon-placeholder">👨‍🏫</div>
+                    <h3 class="font-bebas text-2xl text-orange-500 my-3">INSTRUKTOR</h3>
+                    <p class="text-gray-300">Krótkie szkolenie i wsparcie naszego zespołu na miejscu.</p>
+                </div>
+            </div>
+            <a href="#" class="btn-secondary glass-break-sound-btn">PRZECZYTAJ PEŁNY REGULAMIN</a>
+        </div>
+    </section>
+
+    <footer class="py-10 bg-black text-center">
+        <div class="container mx-auto px-6">
+            <img src="img/Logo_1.png" alt="Logo Rage Room Kraków" class="h-10 mx-auto mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x30/000000/FF0000?text=LOGO';">
+            <p class="text-gray-400 text-sm">&copy; <span id="currentYear"></span> Rage Room Kraków. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-gray-500 text-xs mt-1">Rozwal to legalnie!</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                 <a href="#" class="text-gray-400 hover:text-red-500">FB</a>
+                 <a href="#" class="text-gray-400 hover:text-red-500">IG</a>
+                 <a href="#" class="text-gray-400 hover:text-red-500">TT</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth'
+                    });
+                }
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+        
+        const glassSoundButtons = document.querySelectorAll('.glass-break-sound-btn');
+        if (typeof Tone !== 'undefined') {
+            const synth = new Tone.NoiseSynth({
+                noise: {
+                    type: 'white',
+                },
+                envelope: {
+                    attack: 0.001,
+                    decay: 0.05,
+                    sustain: 0,
+                    release: 0.05,
+                },
+            }).toDestination();
+
+            const filter = new Tone.Filter(1000, "highpass").toDestination();
+            synth.connect(filter);
+            
+            glassSoundButtons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    if (Tone.context.state !== 'running') {
+                        Tone.start().catch(e => console.error("Tone.js start error on mouseenter:", e));
+                    }
+                    try {
+                        synth.triggerAttackRelease("8n", Tone.now());
+                    } catch (error) {
+                        console.warn("Tone.js error on trigger:", error);
+                    }
+                });
+            });
+
+            function startAudioContext() {
+                if (Tone.context.state !== 'running') {
+                    Tone.start().then(() => {
+                        console.log("AudioContext started by user interaction.");
+                    }).catch(e => {
+                        console.error("Error starting AudioContext:", e);
+                    });
+                }
+                document.body.removeEventListener('click', startAudioContext);
+                document.body.removeEventListener('touchstart', startAudioContext);
+            }
+            document.body.addEventListener('click', startAudioContext, { once: true });
+            document.body.addEventListener('touchstart', startAudioContext, { once: true });
+        } else {
+            console.warn("Tone.js library not loaded.");
+        }
+
+    </script>
+</body>
+</html>
