@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rozwal Se! Rage Room Kraków 😎 </title>
+    <title>Rage Room Kraków - Rozwal To Wszystko!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
     <style>
         html {
-            scroll-behavior: smooth; /* Globalne płynne przewijanie */
+            scroll-behavior: smooth; 
         }
         body {
             font-family: 'Roboto Condensed', sans-serif;
@@ -22,11 +22,7 @@
         .font-chakra {
             font-family: 'Chakra Petch', sans-serif;
         }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1920x1080/FF0000/000000?text=TUTAJ+WIDEO+W+TLE');
-            background-size: cover;
-            background-position: center;
-        }
+        /* Usunięto .hero-bg, tło będzie z tagu video */
         .nav-sticky {
             position: sticky;
             top: 0;
@@ -174,15 +170,32 @@
         section[id] {
             scroll-margin-top: 100px; 
         }
-
-        .footer-logo { /* Klasa dla logo w stopce - bezpośrednie ustawienie wysokości */
-            height: 6rem !important; /* Domyślna wysokość (64px) */
+        
+        .footer-logo { 
+            height: 6rem !important; 
         }
-        @media (min-width: 768px) { /* md breakpoint */
+        @media (min-width: 768px) { 
             .footer-logo {
-                height: 8rem !important; /* Wysokość dla średnich i większych ekranów (80px) */
+                height: 8rem !important; 
             }
         }
+
+        /* Style dla tła wideo w sekcji Hero */
+        #hero-video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Aby wideo pokryło cały obszar, przycinając jeśli trzeba */
+            transform: translate(-50%, -50%);
+            z-index: -1; /* Umieszcza wideo za innymi elementami */
+        }
+        .hero-content-container { /* Kontener dla tekstu i przycisków, aby były nad wideo */
+            position: relative;
+            z-index: 10;
+        }
+
     </style>
 </head>
 <body class="bg-neutral-900 text-gray-100">
@@ -216,9 +229,17 @@
         </div>
     </nav>
 
-    <header id="rezerwacja-hero" class="hero-bg min-h-screen flex flex-col items-center justify-center text-center p-6 relative">
-        <div class="absolute inset-0 bg-black opacity-60"></div> 
-        <div class="relative z-10">
+    <header id="rezerwacja-hero" class="min-h-screen flex flex-col items-center justify-center text-center p-6 relative overflow-hidden"> {/* Usunięto hero-bg, dodano overflow-hidden */}
+        <video autoplay loop muted playsinline id="hero-video-background">
+            {/* Pamiętaj, aby podmienić ścieżkę na prawidłową! */}
+            <source src="video/hero-background.mp4" type="video/mp4">
+            {/* Możesz dodać inne formaty dla lepszej kompatybilności, np. .webm */}
+            {/* <source src="video/hero-background.webm" type="video/webm"> */}
+            Twoja przeglądarka nie obsługuje tagu video.
+        </video>
+        <div class="absolute inset-0 bg-black opacity-60 z-0"></div> {/* Nakładka przyciemniająca, z-index 0 */}
+        
+        <div class="hero-content-container"> {/* Kontener dla treści */}
             <h1 class="hero-headline-styling cracked-text"> 
                 <span class="block hero-line-uniform">MASZ DOŚĆ?</span>
                 <span class="block hero-line-spaced">ROZWAL SE.</span>
@@ -248,8 +269,8 @@
                     <div class="step-number-container">
                         <span class="step-number">1</span>
                     </div>
-                    <h3 class="font-bebas text-3xl text-orange-500 my-4 text-center">WYBIERZ SWÓJ PAKIET</h3>
-                    <p class="step-description flex-grow">Przejrzyj nasze opcje i wybierz poziom, który do Ciebie przemawia. <span class="step-description-accent">Większy pakiet = więcej celów = więcej emocji!</span></p>
+                    <h3 class="font-bebas text-3xl text-orange-500 my-4 text-center">WYBIERZ PAKIET</h3>
+                    <p class="step-description flex-grow">Przejrzyj nasze opcje i wybierz poziom zniszczenia, który dziś do Ciebie przemawia. Czy to szybkie odreagowanie, czy pełna sesja demolki – mamy coś dla każdego wkurzonego. <span class="step-description-accent">Większy pakiet = więcej celów = większa ulga!</span></p>
                 </div>
                 <div class="p-6 bg-neutral-900 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 flex flex-col">
                     <div class="step-number-container">
@@ -460,7 +481,7 @@
         </div>
     </section>
 
-   <footer class="py-10 bg-black text-center">
+    <footer class="py-10 bg-black text-center">
         <div class="container mx-auto px-6">
             <img src="img/Logo_1.png" alt="Logo Rage Room Kraków" class="footer-logo mx-auto mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x60/000000/FF0000?text=LOGO';">
             <p class="text-gray-400 text-sm">&copy; <span id="currentYear"></span> Rage Room Kraków. Wszelkie prawa zastrzeżone.</p>
