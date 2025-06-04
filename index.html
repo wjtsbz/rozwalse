@@ -175,6 +175,9 @@
             scroll-margin-top: 100px; 
         }
 
+        .footer-logo { /* Nowa klasa dla logo w stopce */
+            @apply h-12 md:h-16; /* Możesz dostosować te wartości */
+        }
 
     </style>
 </head>
@@ -222,7 +225,7 @@
                 Twoje bezpieczne miejsce do regulowania stresu 🔥 <br> Uwolnij go w kontrolowanym chaosie!
             </p>
             <div>
-                
+                <a href="#pakiety" class="nav-link btn-primary mb-4 md:mb-0 md:mr-4 glass-break-sound-btn">Dawaj, ROZWAL SE! 🔥</a>
                 <a href="#jak-to-dziala" class="nav-link btn-secondary glass-break-sound-btn">Zobacz, jak to działa ↓</a>
             </div>
         </div>
@@ -453,7 +456,7 @@
         </div>
     </section>
 
-   <footer class="py-10 bg-black text-center">
+    <footer class="py-10 bg-black text-center">
         <div class="container mx-auto px-6">
             <img src="img/Logo_1.png" alt="Logo Rage Room Kraków" class="footer-logo mx-auto mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x60/000000/FF0000?text=LOGO';">
             <p class="text-gray-400 text-sm">&copy; <span id="currentYear"></span> Rage Room Kraków. Wszelkie prawa zastrzeżone.</p>
