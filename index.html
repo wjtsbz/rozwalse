@@ -32,9 +32,10 @@
         .btn-primary { 
             @apply inline-block bg-orange-500 hover:bg-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105;
         }
-        .btn-secondary { 
+        .btn-secondary { /* Ta klasa będzie nadal używana dla innych przycisków wtórnych */
             @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-bebas text-xl py-3 px-8 rounded-lg transform transition-all duration-300 hover:scale-105;
         }
+        /* Usunięto klasę .btn-hero-secondary-cta, style będą bezpośrednio w HTML */
         .section-title {
             @apply font-bebas text-5xl md:text-7xl text-center mb-4 text-red-500;
         }
@@ -193,7 +194,9 @@
             position: relative;
             z-index: 10;
         }
-        /* Usunięto .social-icon, ponieważ nie jest już używane */
+        .social-icon {
+            @apply w-8 h-8 fill-current text-orange-500 hover:text-red-500 transition-colors;
+        }
 
         .testimonials-container {
             height: 250px; 
@@ -212,10 +215,10 @@
         }
 
         .reels-grid {
-            @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8;
+            @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl mx-auto; 
         }
         .reel-placeholder {
-            @apply aspect-[9/16] bg-neutral-700 rounded-lg shadow-lg flex items-center justify-center text-center p-2;
+            @apply aspect-video bg-neutral-700 rounded-lg shadow-lg flex items-center justify-center text-center p-4; 
         }
 
     </style>
@@ -269,7 +272,10 @@
                 Twoje bezpieczne miejsce do regulowania stresu 🔥 <br> Uwolnij go w kontrolowanym chaosie!
             </p>
             <div>
-                <a href="#jak-to-dziala" class="nav-link btn-secondary glass-break-sound-btn">Zobacz, jak to działa ↓</a>
+                <a href="#jak-to-dziala" 
+                   class="nav-link glass-break-sound-btn inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-orange-400 hover:text-white font-bebas text-2xl py-3 px-6 rounded-lg transform transition-all duration-300 hover:scale-105">
+                   Zobacz, jak to działa ↓
+                </a>
             </div>
         </div>
     </header>
@@ -315,10 +321,8 @@
             <div class="mt-16 text-center">
                 <h3 class="font-bebas text-4xl text-white mb-6">Zobacz <span class="text-red-500">EMOCJE</span> naszych klientów!</h3>
                 <div class="reels-grid">
-                    <div class="reel-placeholder"><p class="text-gray-400">REEL 1</p></div>
-                    <div class="reel-placeholder"><p class="text-gray-400">REEL 2</p></div>
-                    <div class="reel-placeholder hidden sm:flex"><p class="text-gray-400">REEL 3</p></div>
-                    <div class="reel-placeholder hidden md:flex"><p class="text-gray-400">REEL 4</p></div>
+                    <div class="reel-placeholder"><p class="text-gray-400">Poziomy REEL 1 (16:9)</p></div>
+                    <div class="reel-placeholder"><p class="text-gray-400">Poziomy REEL 2 (16:9)</p></div>
                 </div>
             </div>
 
