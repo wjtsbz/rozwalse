@@ -160,14 +160,6 @@
             @apply font-bebas text-5xl text-orange-300; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
         }
-
-        .jak-to-dziala-bottom-headline-container {
-             @apply text-center mt-20 mb-8; 
-        }
-        .jak-to-dziala-bottom-headline { 
-            @apply font-bebas text-6xl sm:text-7xl md:text-8xl text-white uppercase text-center;
-            line-height: 1.0 !important; 
-        }
         
         section[id] {
             scroll-margin-top: 100px; 
@@ -214,7 +206,7 @@
         }
 
         .reels-grid {
-            @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-3xl mx-auto; /* Zmieniono max-w-4xl na max-w-3xl */
+            @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-3xl mx-auto; 
         }
         .reel-placeholder {
             @apply aspect-video bg-neutral-700 rounded-lg shadow-lg flex items-center justify-center text-center p-0 overflow-hidden; 
@@ -222,6 +214,24 @@
         .reel-video {
             @apply w-full h-full object-cover; 
         }
+
+        /* Zaktualizowane style dla nagłówka na dole sekcji "Jak to działa?" */
+        .bottom-punchline-container {
+             @apply text-center mt-20 mb-12; /* Zapewnia odstępy i centrowanie kontenera */
+        }
+        .bottom-punchline-base {
+            @apply font-bebas text-white uppercase leading-none block; /* block, aby każda linia była osobno */
+        }
+        .bottom-punchline-line1 { 
+            @apply bottom-punchline-base text-6xl sm:text-7xl md:text-8xl; 
+        }
+        .bottom-punchline-line2 { 
+            @apply bottom-punchline-base text-5xl sm:text-6xl md:text-7xl text-orange-500; /* Pomarańczowy kolor i mniejsza czcionka */
+        }
+        .bottom-punchline-line3 { 
+            @apply bottom-punchline-base text-4xl sm:text-5xl md:text-6xl; /* Najmniejsza czcionka */
+        }
+
 
     </style>
 </head>
@@ -344,9 +354,11 @@
                 </div>
             </div>
 
-            <div class="jak-to-dziala-bottom-headline-container">
-                <h2 class="jak-to-dziala-bottom-headline">
-                    POKÓJ FURII.<br><span class="text-orange-500">ZERO OCEN.</span><br>TYLKO TY I MŁOT.
+            <div class="bottom-punchline-container">
+                <h2 class="bottom-punchline-base">
+                    <span class="block bottom-punchline-line1">POKÓJ FURII.</span>
+                    <span class="block bottom-punchline-line2">ZERO OCEN.</span>
+                    <span class="block bottom-punchline-line3">TYLKO TY I MŁOT.</span>
                 </h2>
             </div>
         </div>
