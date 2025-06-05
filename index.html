@@ -29,15 +29,14 @@
             background-color: rgba(17, 17, 17, 0.8); 
             backdrop-filter: blur(10px);
         }
-        .btn-primary { 
+        .btn-primary { /* Dla przycisków "REZERWUJ PAKIET" */
             @apply inline-block bg-orange-500 hover:bg-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105;
         }
-        .btn-secondary { 
+        .btn-secondary { /* Dla przycisku "PRZECZYTAJ PEŁNY REGULAMIN" */
             @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-bebas text-xl py-3 px-8 rounded-lg transform transition-all duration-300 hover:scale-105;
         }
-        .btn-cta-visual { 
-            @apply inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white hover:text-white font-bebas rounded-lg transform transition-all duration-300 hover:scale-105;
-        }
+        /* Usunięto .btn-cta-visual, style będą bezpośrednio w HTML dla przycisków CTA */
+
         .section-title {
             @apply font-bebas text-5xl md:text-7xl text-center mb-4 text-red-500;
         }
@@ -161,6 +160,22 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
         }
         
+        .jak-to-dziala-bottom-headline-container {
+             @apply text-center mt-20 mb-12; 
+        }
+        .bottom-punchline-base { 
+            @apply font-bebas text-white uppercase leading-none block; 
+        }
+        .bottom-punchline-line1 { 
+            @apply bottom-punchline-base text-6xl sm:text-7xl md:text-8xl; 
+        }
+        .bottom-punchline-line2 { 
+            @apply bottom-punchline-base text-5xl sm:text-6xl md:text-7xl text-orange-500; 
+        }
+        .bottom-punchline-line3 { 
+            @apply bottom-punchline-base text-4xl sm:text-5xl md:text-6xl; 
+        }
+        
         section[id] {
             scroll-margin-top: 100px; 
         }
@@ -215,24 +230,6 @@
             @apply w-full h-full object-cover; 
         }
 
-        /* Zaktualizowane style dla nagłówka na dole sekcji "Jak to działa?" */
-        .bottom-punchline-container {
-             @apply text-center mt-20 mb-12; /* Zapewnia odstępy i centrowanie kontenera */
-        }
-        .bottom-punchline-base {
-            @apply font-bebas text-white uppercase leading-none block; /* block, aby każda linia była osobno */
-        }
-        .bottom-punchline-line1 { 
-            @apply bottom-punchline-base text-6xl sm:text-7xl md:text-8xl; 
-        }
-        .bottom-punchline-line2 { 
-            @apply bottom-punchline-base text-5xl sm:text-6xl md:text-7xl text-orange-500; /* Pomarańczowy kolor i mniejsza czcionka */
-        }
-        .bottom-punchline-line3 { 
-            @apply bottom-punchline-base text-4xl sm:text-5xl md:text-6xl; /* Najmniejsza czcionka */
-        }
-
-
     </style>
 </head>
 <body class="bg-neutral-900 text-gray-100">
@@ -247,7 +244,10 @@
                 <a href="#galeria" class="nav-link hover:text-red-500 transition-colors">Galeria</a>
                 <a href="#kontakt" class="nav-link hover:text-red-500 transition-colors">Kontakt</a>
                 <a href="#regulamin" class="nav-link hover:text-red-500 transition-colors">Regulamin</a>
-                <a href="#rezerwacja-hero" class="nav-link btn-primary !py-2 !px-6 glass-break-sound-btn">ZAREZERWUJ!</a> 
+                <a href="#rezerwacja-hero" 
+                   class="nav-link glass-break-sound-btn inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white hover:text-white font-bebas text-2xl !py-2 !px-6 rounded-lg transform transition-all duration-300 hover:scale-105">
+                   ZAREZERWUJ!
+                </a> 
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
@@ -262,7 +262,10 @@
             <a href="#galeria" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Galeria</a>
             <a href="#kontakt" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Kontakt</a>
             <a href="#regulamin" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Regulamin</a>
-            <a href="#rezerwacja-hero" class="nav-link block py-4 px-4 text-lg bg-orange-500 hover:bg-orange-600 text-center transition-colors font-bebas glass-break-sound-btn">ZAREZERWUJ!</a>
+            <a href="#rezerwacja-hero" 
+               class="nav-link block py-4 text-center transition-colors font-bebas glass-break-sound-btn inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white hover:text-white text-2xl rounded-lg transform hover:scale-105">
+               ZAREZERWUJ!
+            </a>
         </div>
     </nav>
 
@@ -355,10 +358,10 @@
             </div>
 
             <div class="bottom-punchline-container">
-                <h2 class="bottom-punchline-base">
-                    <span class="block bottom-punchline-line1">POKÓJ FURII.</span>
-                    <span class="block bottom-punchline-line2">ZERO OCEN.</span>
-                    <span class="block bottom-punchline-line3">TYLKO TY I MŁOT.</span>
+                <h2 class="text-center">
+                    <span class="bottom-punchline-line1">POKÓJ FURII.</span>
+                    <br><span class="bottom-punchline-line2 text-orange-500">ZERO OCEN.</span>
+                    <br><span class="bottom-punchline-line3">TYLKO TY I MŁOT.</span>
                 </h2>
             </div>
         </div>
