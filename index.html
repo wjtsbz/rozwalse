@@ -35,8 +35,9 @@
         .btn-secondary { 
             @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-bebas text-xl py-3 px-8 rounded-lg transform transition-all duration-300 hover:scale-105;
         }
-        /* Usunięto .btn-cta-base, style są bezpośrednio w HTML */
-
+        .btn-cta-visual { 
+            @apply inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white hover:text-white font-bebas rounded-lg transform transition-all duration-300 hover:scale-105;
+        }
         .section-title {
             @apply font-bebas text-5xl md:text-7xl text-center mb-4 text-red-500;
         }
@@ -213,7 +214,7 @@
         }
 
         .reels-grid {
-            @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-5xl mx-auto; /* Zmniejszono max-w- z 6xl na 5xl */
+            @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-4xl mx-auto; /* Zmniejszono max-w- z 5xl na 4xl dla mniejszych filmów */
         }
         .reel-placeholder {
             @apply aspect-video bg-neutral-700 rounded-lg shadow-lg flex items-center justify-center text-center p-0 overflow-hidden; 
@@ -323,19 +324,19 @@
                 <h3 class="font-bebas text-4xl text-white mb-6">Zobacz <span class="text-red-500">EMOCJE</span> naszych klientów!</h3>
                 <div class="reels-grid">
                     <div class="reel-placeholder">
-                        <video class="reel-video" controls poster="https://placehold.co/1280x720/1a202c/4a5568?text=REEL+1+(16:9)">
+                        <video class="reel-video" autoplay loop muted playsinline poster="https://placehold.co/1280x720/333333/FFFFFF?text=REEL+1+(16:9)">
                             <source src="video/reel1.mp4" type="video/mp4">
                             Twoja przeglądarka nie obsługuje wideo.
                         </video>
                     </div>
                     <div class="reel-placeholder">
-                        <video class="reel-video" controls poster="https://placehold.co/1280x720/1a202c/4a5568?text=REEL+2+(16:9)">
+                        <video class="reel-video" autoplay loop muted playsinline poster="https://placehold.co/1280x720/333333/FFFFFF?text=REEL+2+(16:9)">
                             <source src="video/reel2.mp4" type="video/mp4">
                             Twoja przeglądarka nie obsługuje wideo.
                         </video>
                     </div>
                     <div class="reel-placeholder"> 
-                        <video class="reel-video" controls poster="https://placehold.co/1280x720/1a202c/4a5568?text=REEL+3+(16:9)">
+                        <video class="reel-video" autoplay loop muted playsinline poster="https://placehold.co/1280x720/333333/FFFFFF?text=REEL+3+(16:9)">
                             <source src="video/reel3.mp4" type="video/mp4">
                             Twoja przeglądarka nie obsługuje wideo.
                         </video>
