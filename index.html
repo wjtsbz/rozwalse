@@ -29,14 +29,15 @@
             background-color: rgba(17, 17, 17, 0.8); 
             backdrop-filter: blur(10px);
         }
-        .btn-primary { /* Dla przycisków "REZERWUJ PAKIET" */
+        .btn-primary { 
             @apply inline-block bg-orange-500 hover:bg-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105;
         }
-        .btn-secondary { /* Dla przycisku "PRZECZYTAJ PEŁNY REGULAMIN" */
+        .btn-secondary { 
             @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-bebas text-xl py-3 px-8 rounded-lg transform transition-all duration-300 hover:scale-105;
         }
-        /* Usunięto .btn-cta-visual, style są bezpośrednio w HTML dla przycisków CTA */
-
+        .btn-cta-visual { 
+            @apply inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white hover:text-white font-bebas rounded-lg transform transition-all duration-300 hover:scale-105;
+        }
         .section-title {
             @apply font-bebas text-5xl md:text-7xl text-center mb-4 text-red-500;
         }
@@ -44,7 +45,11 @@
             @apply font-chakra text-xl md:text-2xl text-center text-gray-300 mb-12 max-w-3xl mx-auto;
         }
         .package-card {
-            @apply bg-neutral-800 p-6 rounded-xl shadow-2xl border-2 border-neutral-700 hover:border-red-500 transition-all duration-300 flex flex-col justify-between;
+            @apply bg-neutral-800 p-6 rounded-xl shadow-2xl border-2 border-neutral-700 transition-all duration-300 flex flex-col justify-between;
+        }
+        .package-card:hover {
+            @apply border-orange-500;
+            box-shadow: 0 0 60px rgba(249, 115, 22, 0.7);
         }
         
         .cracked-text {
@@ -374,7 +379,7 @@
                 <div class="package-card">
                     <div>
                         <img src="https://placehold.co/600x400/FF4500/FFFFFF?text=Mini+Wkurw" alt="Mini Wkurw" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="font-bebas text-4xl text-red-500 mb-3">MINI WKURW</h3>
+                        <h3 class="font-bebas text-4xl text-red-500 mb-3">&nbsp;</h3>
                         <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">10</span> małych przedmiotów (szklanki, talerze, klawiatury)<br><span class="font-bold text-orange-400">1</span> broń do wyboru</p>
                         <p class="text-gray-400 text-sm mb-6 mt-4">🧨 Idealny dla początkujących. Trochę potłuc, trochę się pośmiać.</p>
                     </div>
@@ -383,10 +388,10 @@
                         <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center glass-break-sound-btn">REZERWUJ PAKIET</a>
                     </div>
                 </div>
-                <div class="package-card border-orange-500 ring-2 ring-orange-500">
+                <div class="package-card border-orange-500 ring-4 ring-orange-500">
                     <div>
                         <img src="https://placehold.co/600x400/FF0000/FFFFFF?text=Korpo-Destrukcja" alt="Korpo-Destrukcja" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="font-bebas text-4xl text-red-500 mb-3">KORPO-DESTRUKCJA</h3>
+                        <h3 class="font-bebas text-4xl text-red-500 mb-3">&nbsp;</h3>
                         <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">20</span> przedmiotów + <span class="font-bold text-orange-400">1</span> większy (np. monitor, mikrofalówka)<br><span class="font-bold text-orange-400">2</span> bronie do wyboru</p>
                         <p class="text-gray-400 text-sm mb-6 mt-4">🔥 Dla tych, co mieli spotkanie z szefem lub Zooma o 8:00.</p>
                     </div>
@@ -398,7 +403,7 @@
                 <div class="package-card">
                     <div>
                         <img src="https://placehold.co/600x400/8B0000/FFFFFF?text=Ex-Partner+Edition" alt="Ex-Partner Edition" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="font-bebas text-4xl text-red-500 mb-3">EX-PARTNER EDITION</h3>
+                        <h3 class="font-bebas text-4xl text-red-500 mb-3">&nbsp;</h3>
                         <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">30</span> przedmiotów, specjalne dodatki: ramki ze zdjęciami, serduszka, misie, lista utworów „Zerwanie 2000s” w tle</p>
                         <p class="text-gray-300 mb-4"><span class="font-bold text-orange-400">20</span> minut terapeutycznej demolki</p>
                         <p class="text-gray-400 text-sm mb-6">💔 Potrzebujesz domknięcia? Masz je. Z odłamkami.</p>
