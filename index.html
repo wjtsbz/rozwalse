@@ -35,9 +35,6 @@
         .btn-secondary { 
             @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-bebas text-xl py-3 px-8 rounded-lg transform transition-all duration-300 hover:scale-105;
         }
-        .btn-cta-visual { 
-            @apply inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white hover:text-white font-bebas rounded-lg transform transition-all duration-300 hover:scale-105;
-        }
         .section-title {
             @apply font-bebas text-5xl md:text-7xl text-center mb-4 text-red-500;
         }
@@ -49,7 +46,7 @@
         }
         .package-card:hover {
             @apply border-orange-500;
-            box-shadow: 0 0 60px rgba(249, 115, 22, 0.7);
+            box-shadow: 0 0 60px rgba(249, 115, 22, 0.9);
         }
         
         .cracked-text {
@@ -300,8 +297,9 @@
         </div>
     </header>
 
-    <section id="jak-to-dziala" class="py-20 bg-neutral-800">
+    <section id="jak-to-dziala" class="pt-10 pb-20 bg-neutral-800">
         <div class="container mx-auto px-6">
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full mb-12"></div>
             <p class="section-subtitle text-center"> 
                 Rage Room to bezpieczna przestrzeń, gdzie możesz wyładować gniew, stres i frustrację – niszcząc rzeczy bez konsekwencji. <br> Po prostu wbij, ubierz się i... rozwalaj, co chcesz.
             </p>
@@ -372,14 +370,14 @@
         </div>
     </section>
 
-    <section id="pakiety" class="py-20 bg-neutral-900">
-        <div class="container mx-auto px-6" text-center">
-            <h2 class="section-title !mb-12">PAKIETY <span class="text-orange-500">DEMOLKI</span> – WYBIERZ SWÓJ POZIOM FURII</h2>
+    <section id="pakiety" class="pt-10 pb-20 bg-neutral-900">
+        <div class="container mx-auto px-6">
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full mb-12"></div>
+            <h2 class="section-title !mb-12 text-center">PAKIETY <span class="text-orange-500">DEMOLKI</span> – WYBIERZ SWÓJ POZIOM FURII</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="package-card">
                     <div>
                         <img src="https://placehold.co/600x400/FF4500/FFFFFF?text=Mini+Wkurw" alt="Mini Wkurw" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="font-bebas text-4xl text-red-500 mb-3">&nbsp;</h3>
                         <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">10</span> małych przedmiotów (szklanki, talerze, klawiatury)<br><span class="font-bold text-orange-400">1</span> broń do wyboru</p>
                         <p class="text-gray-400 text-sm mb-6 mt-4">🧨 Idealny dla początkujących. Trochę potłuc, trochę się pośmiać.</p>
                     </div>
@@ -391,7 +389,6 @@
                 <div class="package-card border-orange-500 ring-4 ring-orange-500">
                     <div>
                         <img src="https://placehold.co/600x400/FF0000/FFFFFF?text=Korpo-Destrukcja" alt="Korpo-Destrukcja" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="font-bebas text-4xl text-red-500 mb-3">&nbsp;</h3>
                         <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">20</span> przedmiotów + <span class="font-bold text-orange-400">1</span> większy (np. monitor, mikrofalówka)<br><span class="font-bold text-orange-400">2</span> bronie do wyboru</p>
                         <p class="text-gray-400 text-sm mb-6 mt-4">🔥 Dla tych, co mieli spotkanie z szefem lub Zooma o 8:00.</p>
                     </div>
@@ -403,7 +400,6 @@
                 <div class="package-card">
                     <div>
                         <img src="https://placehold.co/600x400/8B0000/FFFFFF?text=Ex-Partner+Edition" alt="Ex-Partner Edition" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="font-bebas text-4xl text-red-500 mb-3">&nbsp;</h3>
                         <p class="text-gray-300 mb-2"><span class="font-bold text-orange-400">30</span> przedmiotów, specjalne dodatki: ramki ze zdjęciami, serduszka, misie, lista utworów „Zerwanie 2000s” w tle</p>
                         <p class="text-gray-300 mb-4"><span class="font-bold text-orange-400">20</span> minut terapeutycznej demolki</p>
                         <p class="text-gray-400 text-sm mb-6">💔 Potrzebujesz domknięcia? Masz je. Z odłamkami.</p>
@@ -417,9 +413,10 @@
         </div>
     </section>
 
-    <section id="dlaczego-my" class="py-20 bg-neutral-800">
-        <div class="container mx-auto px-6" text-center">
-            <h2 class="section-title !mb-12">POZBĄDŹ SIĘ STRESU. <span class="text-orange-500">POCZUJ MOC.</span></h2>
+    <section id="dlaczego-my" class="pt-10 pb-20 bg-neutral-800">
+        <div class="container mx-auto px-6">
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full mb-12"></div>
+            <h2 class="section-title !mb-12 text-center">POZBĄDŹ SIĘ STRESU. <span class="text-orange-500">POCZUJ MOC.</span></h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <ul class="space-y-6">
@@ -497,9 +494,10 @@
         </div>
     </section>
 
-    <section id="galeria" class="py-20 bg-neutral-900">
-        <div class="container mx-auto px-6 text-center"> 
-            <h2 class="section-title !mb-12">JESTEŚ TYLKO TY, SPRZĘT I REGULOWANIE <span class="text-orange-500">STRESU.</span></h2>
+    <section id="galeria" class="pt-10 pb-20 bg-neutral-900">
+        <div class="container mx-auto px-6">
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full mb-12"></div>
+            <h2 class="section-title !mb-12 text-center">JESTEŚ TYLKO TY, SPRZĘT I REGULOWANIE <span class="text-orange-500">STRESU.</span></h2>
             <p class="text-center text-xl text-gray-300 mb-10">Śledź nas na <a href="#" class="text-red-500 hover:text-orange-500 font-bold">Instagramie</a> i <a href="#" class="text-red-500 hover:text-orange-500 font-bold">TikToku</a>! #RageRoomKrakow</p>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <img src="https://placehold.co/400x400/FF6347/FFFFFF?text=Demolka+1" alt="Zdjęcie z Rage Room 1" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 aspect-square object-cover">
@@ -513,9 +511,10 @@
         </div>
     </section>
 
-    <section id="kontakt" class="py-20 bg-neutral-800">
+    <section id="kontakt" class="pt-10 pb-20 bg-neutral-800">
         <div class="container mx-auto px-6">
-            <h2 class="section-title !mb-12">ZNAJDŹ NAS. <span class="text-orange-500">ROZWAL SE.</span></h2>
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full mb-12"></div>
+            <h2 class="section-title !mb-12 text-center">ZNAJDŹ NAS. <span class="text-orange-500">ROZWAL SE.</span></h2>
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h3 class="font-bebas text-3xl text-white mb-4">Dane Kontaktowe</h3>
@@ -556,8 +555,9 @@
         </div>
     </section>
 
-    <section id="regulamin" class="py-20 bg-neutral-900">
+    <section id="regulamin" class="pt-10 pb-20 bg-neutral-900">
         <div class="container mx-auto px-6 text-center">
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full mb-12"></div>
             <h2 class="section-title !mb-12">TWOJE BEZPIECZEŃSTWO – <span class="text-orange-500">NASZ PRIORYTET</span></h2>
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div class="p-6 bg-neutral-800 rounded-lg shadow-lg">
@@ -608,21 +608,24 @@
     <script>
         // Smooth scroll for anchor links
         document.querySelectorAll('a.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ 
-                        behavior: 'smooth'
-                    });
-                }
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
+            // Sprawdzamy, czy link jest wewnętrzny (zaczyna się od #)
+            if (anchor.getAttribute('href').startsWith('#')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ 
+                            behavior: 'smooth'
+                        });
+                    }
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
         });
 
         const mobileMenuButton = document.getElementById('mobile-menu-button');
