@@ -223,7 +223,7 @@
         }
 
         .reels-grid {
-            @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-3xl mx-auto; 
+            @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-3xl w-full; 
         }
         .reel-placeholder {
             @apply aspect-video bg-neutral-700 rounded-lg shadow-lg flex items-center justify-center text-center p-0 overflow-hidden; 
@@ -242,6 +242,42 @@
             border-radius: 9999px;
         }
 
+                .btn-underline {
+            position: relative;
+            display: inline-block;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.25rem; /* text-xl */
+            color: white; /* text-orange-400 */
+            transition: color 0.3s;
+            text-decoration: none;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .btn-underline:hover {
+            color: #fdba74; /* hover:text-orange-300 */
+        }
+
+        .btn-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f97316; /* orange-500 */
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .btn-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        
+        
     </style>
 </head>
 <body class="bg-neutral-900 text-gray-100">
@@ -346,7 +382,7 @@
                     <p class="step-description flex-grow">Telewizory, talerze, monitory, drukarki. To Twoja chwila. Ty robisz robotę, a my sprzątamy.</p>
                 </div>
             </div>
-            <div class="mt-16 text-center">
+            <div class="mt-16 flex flex-col items-center">
                 <h3 class="font-bebas text-4xl text-white mb-6">Zobacz <span class="text-red-500">EMOCJE</span> naszych klientów!</h3>
                 <div class="reels-grid">
                     <div class="reel-placeholder">
@@ -372,8 +408,8 @@
 
             <div class="text-center">
                 <h2 class="uppercase font-bebas leading-none">
-                    <span class="block text-white text-5xl sm:text-6xl md:text-7xl py-5">POKÓJ FURII.</span>
-                    <span class="block text-white text-5xl sm:text-6xl md:text-7xl">TYLKO TY I MŁOT.</span>
+                    <span class="block text-white text-5xl sm:text-6xl md:text-7xl py-8">POKÓJ FURII.</span>
+                    <span class="block text-white text-5xl sm:text-6xl md:text-7xl pb-3">TYLKO TY I MŁOT.</span>
                     <span class="block text-orange-500 text-6xl sm:text-7xl md:text-8xl py-5">ZERO OCEN.</span>
                 </h2>
             </div>
@@ -382,19 +418,19 @@
 
     <section id="pakiety" class="pt-0 pb-8 bg-neutral-900">
         <div class="container mx-auto px-6 pt-8">
-            <div class="section-divider"></div>
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full mb-12"></div>
             <h2 class="section-title !mb-12 text-center text-2xl">PAKIETY <span class="text-orange-500">DEMOLKI</span> – WYBIERZ SWÓJ POZIOM FURII</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="package-card">
+                <div class="package-card pb-8">
                     <div>
                         <img src="https://placehold.co/600x400/FF4500/FFFFFF?text=Mini+Wkurw" alt="Mini Wkurw" class="rounded-t-lg mb-4 w-full h-48 object-cover">
                         <p class="text-gray-300 mb-2 px-5"><span class="font-bold text-orange-400">15 </span>małych przedmiotów - kubki, szklanki, talerze, po prostu szkło 😎
                         <p class="text-gray-300 mb-2 px-5 pb-8"><span class="font-bold text-orange-400">1</span> broń do wyboru</p>
-                        <p class="text-gray-400 text-sm mb-6 mt-4 px-4 text-center">🧨 Idealny dla początkujących. Trochę potłuc, trochę się pośmiać.</p>
+                        <p class="text-gray-400 text-sm mb-6 mt-4 px-2 text-center">🧨 Idealny dla początkujących. Trochę potłuc, trochę się pośmiać.</p>
                     </div>
                     <div class="mt-auto text-center">
                         <p class="font-bebas text-5xl text-white mb-6">199 PLN</p>
-                        <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center glass-break-sound-btn">REZERWUJ PAKIET</a>
+                        <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-br from-orange-500 to-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-orange-500/40 transform transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-orange-700 w-3/4 glass-break-sound-btn">REZERWUJ PAKIET</a>
                     </div>
                 </div>
                 <div class="package-card border-orange-500 ring-4 ring-orange-500">
@@ -407,22 +443,27 @@
                     </div>
                     <div class="mt-auto text-center">
                          <p class="font-bebas text-5xl text-white mb-6">299 PLN</p>
-                        <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center glass-break-sound-btn">REZERWUJ PAKIET</a>
+                        <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-br from-orange-500 to-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-orange-500/40 transform transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-orange-700 w-3/4 glass-break-sound-btn">REZERWUJ PAKIET</a>
                     </div>
                 </div>
                 <div class="package-card">
                     <div>
-                        <img src="https://placehold.co/600x400/8B0000/FFFFFF?text=Ex-Partner+Edition" alt="Ex-Partner Edition" class="rounded-t-lg mb-4 w-full h-48 object-cover">
-                        <p class="text-gray-300 mb-2 px-5"><span class="font-bold text-orange-400">30</span> małych przedmiotów - kubki, szklanki, talerze, po prostu szkło 😎</p>
+                        <img src="https://placehold.co/600x400/8B0000/FFFFFF?text=Furia+Tytana" alt="Furia Tytana" class="rounded-t-lg mb-4 w-full h-48 object-cover">
+                        <p class="text-gray-300 mb-2 px-5"><span class="font-bold text-orange-400">50</span> małych przedmiotów - kubki, szklanki, talerze, po prostu szkło 😎</p>
                         <p class="text-gray-300 mb-2 px-5"><span class="font-bold text-orange-400">3</span> większe przedmioty (np. monitor, mikrofalówka)</p>
-                        <p class="text-gray-300 mb-4 px-5"><span class="font-bold text-orange-400">3</span> bronie do wyboru</p> 
-                        <p class="text-gray-400 text-sm mb-6 px-4 text-center">💔 Potrzebujesz domknięcia? Masz je. Z odłamkami.</p>
+                        <p class="text-gray-300 mb-4 px-5"><span class="font-bold text-orange-400">Wszystkie</span> bronie do wyboru</p> 
+                        <p class="text-gray-400 text-sm mb-6 mt-4 px-4 text-center">🤯 Dla tych, którzy nie uznają kompromisów. Totalna demolka.</p>
                     </div>
                      <div class="mt-auto text-center">
-                        <p class="font-bebas text-5xl text-white mb-6">349 PLN</p>
-                        <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center glass-break-sound-btn">REZERWUJ PAKIET</a>
+                        <p class="font-bebas text-5xl text-white mb-6">449 PLN</p>
+                        <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-br from-orange-500 to-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-orange-500/40 transform transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-orange-700 w-3/4 glass-break-sound-btn">REZERWUJ PAKIET</a>
                     </div>
                 </div>
+            </div>
+             <div class="mt-16 text-center bg-neutral-900/50 border-2 border-dashed border-orange-500 p-8 rounded-xl">
+                <h3 class="font-bebas text-3xl text-orange-400 mb-4">SZUKASZ CZEGOŚ SPECJALNEGO?</h3>
+                <p class="text-gray-300 pt-4 max-w-2xl mx-auto mb-6 text-xl">Oferujemy pakiety szyte na miarę, takie jak <strong class="text-white">Ex-Partner Edition</strong> czy <strong class="text-white">Wieczór Kawalerski</strong>. Skontaktuj się z nami, a przygotujemy demolkę Twoich marzeń!</p>
+                <a href="#kontakt" class="nav-link btn-underline glass-break-sound-btn">Zapytaj o szczegóły</a>
             </div>
         </div>
     </section>
