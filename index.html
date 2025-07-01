@@ -29,8 +29,43 @@
             background-color: rgba(17, 17, 17, 0.8); 
             backdrop-filter: blur(10px);
         }
-        .btn-primary { 
-            @apply inline-block bg-orange-500 hover:bg-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105;
+
+            
+        .btn-primary {
+            position: relative;
+            display: inline-block;
+            font-family: 'Bebas', ;
+            font-size: 1rem; /* text-xl */
+            color: white; /* text-orange-400 */
+            transition: color 0.3s;
+            text-decoration: none;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            color: #fdba74; /* hover:text-orange-300 */
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            width: 160%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: -30%;
+            background-color: #f97316; /* orange-500 */
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .btn-primary:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+            
+            
         }
         .btn-secondary { 
             @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white font-bebas text-xl py-3 px-8 rounded-lg transform transition-all duration-300 hover:scale-105;
@@ -278,6 +313,7 @@
         
         
         
+        
     </style>
 </head>
 <body class="bg-neutral-900 text-gray-100">
@@ -522,28 +558,28 @@
                             <p class="text-right font-bold text-orange-400 mt-2">- Kasia S.</p>
                         </div>
                         <div class="testimonial-item">
-                            <p class="text-gray-300 italic">"Idealne miejsce, żeby wyładować frustrację po ciężkim tygodniu w pracy. Młot robi robotę!"</p>
+                            <p class="text-gray-300 italic">"Cały tydzień użerania się z klientami i szefem... to miejsce to było lekarstwo. Rozwalenie monitora kijem bejsbolowym - bezcenne. Wróciłem do domu jak nowo narodzony. Mega reset."</p>
                             <p class="text-right font-bold text-orange-400 mt-2">- Piotr Z.</p>
                         </div>
                         <div class="testimonial-item">
-                            <p class="text-gray-300 italic">"To było najlepsze uczucie! Totalna wolność i zero konsekwencji. Wrócę na pewno!"</p>
+                            <p class="text-gray-300 italic">"Miałam fatalny dzień i potrzebowałam po prostu coś rozwalić. To miejsce jest idealne. Pełen profesjonalizm, super obsługa i co najważniejsze - można krzyczeć i nikt dziwnie nie patrzy ;) Poczucie ulgi po wszystkim jest niesamowite."</p>
                             <p class="text-right font-bold text-orange-400 mt-2">- Anna B.</p>
                         </div>
                         <div class="testimonial-item">
-                            <p class="text-gray-300 italic">"Polecam każdemu, kto potrzebuje zresetować głowę. Niesamowita zabawa i ulga!"</p>
-                            <p class="text-right font-bold text-orange-400 mt-2">- Marek K.</p>
+                            <p class="text-gray-300 italic">"Świetny pomysł na odreagowanie stresu. Czułam się jak superbohaterka z młotem w ręku! Polecam z całego serca każdej kobiecie, która potrzebuje poczuć swoją moc."</p>
+                            <p class="text-right font-bold text-orange-400 mt-2">- Zuzia P.</p>
                         </div>
                         <div class="testimonial-item">
-                            <p class="text-gray-300 italic">"Mega sprawa! Wyżyłem się za wszystkie czasy. Na pewno tu wrócę!"</p>
+                            <p class="text-gray-300 italic">"Szukałem z dziewczyną jakiejś nowej, nietypowej rozrywki w Krakowie i trafiliśmy tutaj. To było coś zupełnie innego! Fun 10/10, na pewno będziemy polecać dalej."</p>
                             <p class="text-right font-bold text-orange-400 mt-2">- Tomek W.</p>
                         </div>
                         <div class="testimonial-item">
-                            <p class="text-gray-300 italic">"Świetny pomysł na odreagowanie stresu. Polecam z całego serca!"</p>
-                            <p class="text-right font-bold text-orange-400 mt-2">- Ewa L.</p>
+                            <p class="text-gray-300 italic">"Zabraliśmy kumpla na urodziny i to był strzał w dziesiątkę! Lepsze niż jakiekolwiek kręgle czy bilard. Rywalizacja o to, kto zrobi większą demolkę, była przednia. Polecamy na każdą imprezę!"</p>
+                            <p class="text-right font-bold text-orange-400 mt-2">- Marek K.</p>
                         </div>
                         <!-- Duplikaty dla płynnego przewijania -->
                         <div class="testimonial-item">
-                            <p class="text-gray-300 italic">"Niesamowite doświadczenie! Wyszłam stamtąd jak nowo narodzona. Polecam każdemu!"</p>
+                            <p class="text-gray-300 italic">"Polecam każdemu, kto potrzebuje zresetować głowę. Niesamowita zabawa i ulga!"</p>
                             <p class="text-right font-bold text-orange-400 mt-2">- Kasia S.</p>
                         </div>
                         <div class="testimonial-item">
@@ -568,7 +604,7 @@
                 <img src="https://placehold.co/400x400/DC143C/FFFFFF?text=Team+Building" alt="Zdjęcie z Rage Room 4" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 aspect-square object-cover">
             </div>
              <div class="text-center mt-12">
-                <a href="#" class="btn-primary glass-break-sound-btn">ZOBACZ WIĘCEJ W NASZYCH SOCIAL MEDIACH</a>
+                <class="btn-primary glass-break-sound-btn">ZOBACZ WIĘCEJ W NASZYCH SOCIAL MEDIACH</a>
             </div>
         </div>
     </section>
@@ -610,8 +646,8 @@
                             <label for="message" class="block text-sm font-medium text-orange-400">Wiadomość</label>
                             <textarea name="message" id="message" rows="4" class="mt-1 block w-full bg-neutral-700 border-neutral-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 text-white" required></textarea>
                         </div>
-                        <div>
-                            <button type="submit" class="btn-primary w-full glass-break-sound-btn">WYŚLIJ WIADOMOŚĆ</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn-primary glass-break-sound-btn">WYŚLIJ WIADOMOŚĆ</button>
                         </div>
                     </form>
                 </div>
