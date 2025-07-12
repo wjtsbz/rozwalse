@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0WBK1NC33"></script>
 <script>
@@ -10,9 +11,31 @@
 
   gtag('config', 'G-T0WBK1NC33');
 </script>
+    
+    <!-- Schema.org dane strukturalne - JSON LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EntertainmentBusiness",
+  "name": "Rage Room Kraków",
+  "description": "Rage Room w Krakowie – legalna demolka, wyładowanie emocji, atrakcje na wieczór kawalerski, integracje firmowe, vouchery prezentowe.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Twoja Ulica 1",
+    "addressLocality": "Kraków",
+    "postalCode": "30-000",
+    "addressCountry": "PL"
+  },
+  "telephone": "+48 123 456 789",
+  "url": "https://rozwalse.pl",
+  "image": "https://rozwalse.pl/img/Logo_3.png"
+}
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rozwal Se! Rage Room Kraków 😎</title>
+    <meta name="description" content="Rage Room – miejsce, gdzie ludzie mogą legalnie i bez konsekwencji rozwalić graty, wyładować emocje, zrobić coś, czego nie zrobią w domu. To nie jest zwykła rozrywka – to przestrzeń, gdzie można zrobić to, czego nie wypada w domu, nie martwiąc się o sprzątanie, koszty czy krzywe spojrzenia.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
@@ -319,13 +342,39 @@
             border-radius: 9999px;
         }
         
+                /* Language switcher hover effects */
+        .hover-lang-en:hover {
+            @apply bg-gradient-to-r from-blue-600 via-white to-red-600 text-transparent bg-clip-text;
+        }
+        .hover-lang-ua:hover {
+            @apply bg-gradient-to-b from-blue-500 to-yellow-400 text-transparent bg-clip-text;
+        }
+        .hover-lang-es:hover {
+            @apply bg-gradient-to-b from-yellow-400 to-red-600 text-transparent bg-clip-text;
+        }
+        
     </style>
 </head>
 <body class="bg-neutral-900 text-gray-100">
 
     <nav id="navbar" class="nav-sticky p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
+            
+            <div class="flex items-center gap-6">
+                <a href="index.html">
             <img src="img/Logo_3.png" alt="Logo Rage Room Kraków" class="h-12 md:h-16 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x50/111111/FF0000?text=LOGO';">
+                </a>
+                <div class="hidden md:flex items-baseline space-x-3 text-sm font-bebas border-l-2 border-neutral-700 pl-6">
+                    <span class="text-white opacity-50 cursor-default" title="Polski">PL</span>
+                    <span class="text-neutral-600">|</span>
+                    <a href="en.html" class="text-white hover-lang-en transition-all" title="English">EN</a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="ua.html" class="text-white hover-lang-ua transition-all" title="Українська">UA</a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="es.html" class="text-white hover-lang-es transition-all" title="Español">ES</a>
+                </div>
+            </div>
+            
             <div class="hidden md:flex space-x-6 items-center font-bebas text-xl">
                 <a href="#jak-to-dziala" class="nav-link hover:text-red-500 transition-colors">Jak to działa?</a>
                 <a href="#pakiety" class="nav-link hover:text-red-500 transition-colors">Pakiety</a>
@@ -351,6 +400,15 @@
             <a href="#galeria" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Galeria</a>
             <a href="#kontakt" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Kontakt</a>
             <a href="#bezpieczenstwo" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Bezpieczeństwo</a>
+            <div class="flex justify-center space-x-4 py-4 border-t border-b border-neutral-700">
+                <span class="font-bebas text-xl text-white opacity-50 cursor-default">PL</span>
+                <span class="text-neutral-500">|</span>
+                <a href="en.html" class="font-bebas text-xl text-white hover-lang-en transition-all">EN</a>
+                <span class="text-neutral-500">|</span>
+                <a href="ua.html" class="font-bebas text-xl text-white hover-lang-ua transition-all">UA</a>
+                <span class="text-neutral-500">|</span>
+                <a href="es.html" class="font-bebas text-xl text-white hover-lang-es transition-all">ES</a>
+            </div>
             <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" 
                class="block py-4 text-center transition-colors font-bebas glass-break-sound-btn inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white text-2xl rounded-lg transform hover:scale-105">
                ZAREZERWUJ!
