@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Szukasz nietuzinkowej rozrywki w Krakowie? Nasz Rage Room to idealne miejsce na wieczór kawalerski, imprezę firmową lub by po prostu uwolnić emocje. Zarezerwuj pokój złości już dziś!">
+    <title>FAQ - Najczęściej Zadawane Pytania - Rozwal Se! Rage Room Kraków</title>
+        <link rel="alternate" hreflang="pl" href="https://www.rozwalse.pl/FAQ.html" />
+        <link rel="alternate" hreflang="en" href="https://www.rozwalse.pl/FAQ-en.html" />
+        <link rel="alternate" hreflang="uk" href="https://www.rozwalse.pl/FAQ-ua.html" />
+        <link rel="alternate" hreflang="es" href="https://www.rozwalse.pl/FAQ-es.html" />
+        <link rel="alternate" hreflang="x-default" href="https://www.rozwalse.pl/FAQ.html" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #111111; 
+            color: #F5F5F5; 
+        }
+        .font-bebas {
+            font-family: 'Bebas Neue', cursive;
+        }
+        .font-chakra {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(17, 17, 17, 0.8); 
+            backdrop-filter: blur(10px);
+        }
+        .footer-logo { 
+            height: 4rem !important; 
+        }
+        @media (min-width: 768px) { 
+            .footer-logo {
+                height: 5rem !important; 
+            }
+        }
+        /* Style dla FAQ */
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 500px; /* Wystarczająco duża wartość */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .faq-item.open .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .arrow-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-neutral-900 text-gray-100">
+
+    <nav id="navbar" class="nav-sticky p-4 shadow-lg">
+    
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="index.html">
+            <img src="img/Logo_3.png" alt="Logo Rage Room Kraków bezpieczna rozrywka do regulowania emocji" class="h-12 md:h-16 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x50/111111/FF0000?text=LOGO';">
+                </a>
+                <!-- <div class="hidden md:flex items-baseline space-x-3 text-sm font-bebas border-l-2 border-neutral-700 pl-6">
+                    <span class="text-white opacity-50 cursor-default" title="Polski">PL</span>
+                    <span class="text-neutral-600">|</span>
+                    <a href="index-en.html" class="text-white hover:bg-gradient-to-r hover:from-blue-600 hover:via-white hover:to-red-600 hover:text-transparent hover:bg-clip-text transition-all" title="English">EN</a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="index-ua.html" class="text-white hover:bg-gradient-to-b hover:from-blue-500 hover:to-yellow-400 hover:text-transparent hover:bg-clip-text transition-all" title="Українська">UA</a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="index-es.html" class="text-white hover:bg-gradient-to-b hover:from-yellow-400 hover:to-red-600 hover:text-transparent hover:bg-clip-text transition-all" title="Español">ES</a>
+                </div> --> 
+            </div>
+            <div class="hidden md:flex space-x-6 items-center font-bebas text-xl">
+                <a href="index.html#jak-to-dziala" class="hover:text-red-500 transition-colors">Jak to działa?</a>
+                <a href="index.html#pakiety" class="hover:text-red-500 transition-colors">Pakiety</a>
+                <a href="index.html#dlaczego-my" class="hover:text-red-500 transition-colors">Dlaczego My?</a>
+                <a href="index.html#galeria" class="hover:text-red-500 transition-colors">Galeria</a>
+                <a href="index.html#kontakt" class="hover:text-red-500 transition-colors">Kontakt</a>
+                <a href="index.html#bezpieczenstwo" class="hover:text-red-500 transition-colors">Bezpieczeństwo</a>
+                <a href="FAQ.html" class="nav-link hover:text-red-500 transition-colors">FAQ</a>
+                <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white font-bebas text-2xl !py-2 !px-6 rounded-lg transform transition-all duration-300 hover:scale-105">
+                   ZAREZERWUJ!
+                </a> 
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-800">
+            <a href="index.html#jak-to-dziala" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Jak to działa?</a>
+            <a href="index.html#pakiety" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Pakiety</a>
+            <a href="index.html#dlaczego-my" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Dlaczego My?</a>
+            <a href="index.html#galeria" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Galeria</a>
+            <a href="index.html#kontakt" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Kontakt</a>
+            <a href="index.html#bezpieczenstwo" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Bezpieczeństwo</a>
+            <a href="FAQ.html" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">FAQ</a>
+            <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" 
+               class="block py-4 text-center transition-colors font-bebas inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white text-2xl rounded-lg transform hover:scale-105">
+               ZAREZERWUJ!
+            </a>
+        </div>
+    </nav>
+
+   <main class="py-20">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <h1 class="font-bebas text-6xl md:text-7xl text-center text-orange-500 mb-12">NAJCZĘŚCIEJ ZADAWANE PYTANIA (FAQ)</h1>
+
+        <div class="space-y-4 max-w-2xl mx-auto">
+            
+            <!-- Pytanie 1 -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Czym jest Pokój Furii i na czym to polega?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>To proste. Dajemy Ci bezpieczny pokój, sprzęt ochronny, narzędzie zniszczenia (np. młot lub kij) i masę gratów do rozwalenia. Twoim jedynym zadaniem jest wejść i uwolnić emocje, niszcząc wszystko, co wpadnie Ci w ręce. Bez konsekwencji i bez sprzątania. To legalna, bezpieczna i cholernie satysfakcjonująca forma odreagowania stresu.</p>
+                </div>
+            </div>
+
+            <!-- Pytanie 2 -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Czy to jest bezpieczne? Co z moim zdrowiem?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Tak, pod warunkiem, że słuchasz naszych zasad. Twoje bezpieczeństwo to nasz absolutny priorytet. Zapewniamy profesjonalny, certyfikowany sprzęt ochronny: kombinezon, pełny kask z osłoną twarzy i wzmacniane rękawice. Przed wejściem przechodzisz obowiązkowy instruktaż. Jedyne, o co musisz zadbać, to pełne, twarde obuwie. Przestrzeganie regulaminu to podstawa, pamiętaj.</p>
+                </div>
+            </div>
+
+            <!-- NOWE PYTANIE: Ubiór -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">W co dokładnie mam się ubrać?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Wygodne, niekrępujące ruchów ciuchy – dresy, jeansy, bluza, cokolwiek. Najważniejsze jest <strong>obuwie: musi być pełne, zakryte i mieć twardą podeszwę.</strong> Adidasy, sneakersy, trampki. Glany też spoko. Zapomnij o sandałach, klapkach czy szpilkach. Bez pełnych butów Cię nie wpuścimy – bezpieczeństwo, pamiętasz?</p>
+                </div>
+            </div>
+
+            <!-- NOWE PYTANIE: Co do niszczenia -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Co dokładnie dostaję do niszczenia?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>W każdym pakiecie dostajesz solidny miks gratów: małą elektronikę (klawiatury, dekodery), szkło (butelki, słoiki), talerze i inne niespodzianki. W droższych pakietach dochodzi większy sprzęt jak monitory czy drukarki. Gwarantujemy, że będziesz miał co robić. Jeśli chcesz rozwalić coś konkretnego, sprawdź opis pakietów przy rezerwacji.</p>
+                </div>
+            </div>
+
+            <!-- NOWE PYTANIE: Własne rzeczy -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Czy mogę przynieść własne rzeczy do rozwalenia?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Zdjęcie szefa lub pamiątki po byłej/byłym? Jak najbardziej, nawet zachęcamy! Jeśli chodzi o większe przedmioty, musimy to wcześniej uzgodnić. Nie przyjmujemy rzeczy niebezpiecznych lub zawierających szkodliwe substancje (np. starych lodówek, świetlówek). Napisz do nas z pytaniem, a na pewno się dogadamy.</p>
+                </div>
+            </div>
+
+            <!-- NOWE PYTANIE: Kawalerskie / Panieńskie -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Czy to dobry pomysł na wieczór kawalerski w Krakowie?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Stary, to jest <strong>genialny</strong> pomysł. Zamiast kolejnej nudnej rundki po barach, dajecie przyszłemu Panu Młodemu lub Pannie Młodej szansę na totalny reset przed wielkim dniem. Mamy specjalne pakiety na kawalerskie i panieńskie, które gwarantują masę śmiechu i niezapomniane wspomnienia. Skontaktuj się z nami, a zorganizujemy wam demolkę życia.</p>
+                </div>
+            </div>
+            
+            <!-- NOWE PYTANIE: Firmy -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Macie ofertę dla firm na imprezy integracyjne?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Oczywiście. Nic tak nie integruje zespołu jak wspólne niszczenie drukarki, która nigdy nie chciała działać. To świetna alternatywa dla kręgli czy paintballa. Dajcie upust korporacyjnemu stresowi w kontrolowanych warunkach. Przygotowujemy indywidualne oferty dla firm, dopasowane do Waszych potrzeb i budżetu.</p>
+                </div>
+            </div>
+
+            <!-- Pytanie 3 -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Jak mogę zarezerwować termin?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Najszybciej i najprościej zrobisz to przez nasz system rezerwacji online na stronie – kliknij przycisk "ZAREZERWUJ!". Możesz też zadzwonić lub napisać, ale rezerwacja online daje Ci pewność, że termin jest twój od razu po opłaceniu.</p>
+                </div>
+            </div>
+
+            <!-- Pytanie 4 -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Czy mogę zmienić lub odwołać rezerwację?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Tak, ale czas ma znaczenie. Jeśli odwołasz rezerwację na więcej niż 24 godziny przed terminem, zwrócimy Ci 100% kasy lub bezpłatnie zmienimy termin. Poniżej 24 godzin rezerwacja przepada. Szanujemy twój czas, więc prosimy, żebyś Ty szanował nasz. Szczegóły znajdziesz w <a href="regulamin.html" target="_blank" class="underline hover:text-orange-400">Regulaminie</a>.</p>
+                </div>
+            </div>
+
+            <!-- Pytanie 5 -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Kto nie może korzystać z Pokoju Furii?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Lista jest krótka i konkretna. Nie wpuszczamy osób niepełnoletnich, kobiet w ciąży oraz osób pod wpływem alkoholu lub narkotyków. Jeśli masz poważne problemy z sercem, układem krążenia, epilepsję lub inne schorzenia, które mogą stanowić zagrożenie przy wysiłku fizycznym – odpuść. Twoje zdrowie jest ważniejsze. Przed wejściem podpisujesz oświadczenie, że nie masz przeciwwskazań.</p>
+                </div>
+            </div>
+            
+            <!-- Pytanie 6 -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Jak mogę zapłacić?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Przy rezerwacji online zapłacisz BLIKiem, kartą lub szybkim przelewem. Na miejscu akceptujemy karty płatnicze i gotówkę. Prosto i bez kombinowania.</p>
+                </div>
+            </div>
+
+            <!-- Pytanie 7 -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Czy mogę kupić wejście jako prezent (voucher)?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Oczywiście. To jeden z najlepszych prezentów, jakie możesz komuś dać. Vouchery są dostępne na naszej stronie internetowej. Są ważne przez 6 miesięcy od daty zakupu. To idealny prezent dla kogoś, kto ma już wszystko, oprócz świętego spokoju.</p>
+                </div>
+            </div>
+
+            <!-- NOWE PYTANIE: Muzyka -->
+            <div class="faq-item bg-neutral-800 rounded-lg">
+                <div class="faq-question cursor-pointer flex justify-between items-center p-6 hover:bg-neutral-700 transition-colors duration-300">
+                    <h2 class="font-bebas text-2xl text-white">Czy mogę puścić własną muzykę?</h2>
+                    <svg class="arrow-icon w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="faq-answer px-6 text-gray-300">
+                    <p>Tak! W każdym pokoju jest głośnik, z którym możesz połączyć się przez Bluetooth. Twój ulubiony metalowy kawałek czy cokolwiek, co nakręca Cię do działania – nie ma problemu. Demolka przy własnej ścieżce dźwiękowej wchodzi na zupełnie nowy poziom satysfakcji.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="index.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
+                Wróć na stronę główną
+            </a>
+        </div>
+
+    </div>
+</main>
+
+    <footer class="py-10 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <!-- Lewa strona stopki -->
+                <div class="mb-4 md:mb-0">
+                    <img src="img/Logo_3.png" alt="Logo Rage Room Kraków" class="footer-logo mx-auto md:mx-0 mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x60/000000/FF0000?text=LOGO';">
+                    <p class="text-gray-400 text-sm">© <span id="currentYear"></span> Rage Room Kraków. Wszelkie prawa zastrzeżone.</p>
+                    <p class="text-gray-500 text-xs mt-1">Rozwal to legalnie!</p>
+                </div>
+
+                <!-- Prawa strona stopki -->
+                <div class="text-center md:text-right">
+                    <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                         <a href="https://google.pl" target="_blank" rel="noopener noreferrer" title="Facebook">
+                            <svg class="w-6 h-6 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.407.593 24 1.324 24h11.494v-9.294H9.692v-3.622h3.126V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.324V1.324C24 .593 23.407 0 22.676 0z"/></svg>
+                        </a>
+                        <a href="https://google.pl" target="_blank" rel="noopener noreferrer" title="Instagram">
+                            <svg class="w-6 h-6 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.172.053 1.791.218 2.166.366.476.183.826.396 1.18.75.354.354.566.704.75 1.18.147.375.313.994.366 2.166.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.053 1.172-.218 1.791-.366 2.166-.184.475-.396.826-.75 1.18-.354.354-.704.566-1.18.75-.375.147-.994.313-2.166.366-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.172-.053-1.791-.218-2.166-.366-.475-.184-.826-.396-1.18-.75-.354-.354-.566-.704-.75-1.18-.147-.375-.313-.994-.366-2.166-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.053-1.172.218-1.791.366-2.166.184-.475.396-.826.75-1.18.354-.354.704-.566 1.18-.75.375-.147.994-.313 2.166-.366C8.416 2.175 8.796 2.163 12 2.163m0-1.631C8.724.532 8.318.544 7.053.603c-1.26.058-2.164.229-2.913.513-.769.292-1.417.696-2.053 1.332S.831 3.833.539 4.602C.256 5.351.084 6.255.026 7.515C.026 7.515 0 7.92.001 8.732v6.535c-.001.812.026 1.217.026 1.217.058 1.26.229 2.164.513 2.913.292.769.696 1.417 1.332 2.053s1.283.998 2.053 1.332c.749.283 1.653.455 2.913.513.058.001 1.26.026 1.26.026h6.535c.812 0 1.217-.026 1.217-.026 1.26-.058 2.164-.229 2.913-.513.769-.292 1.417-.696 2.053-1.332.636-.636 1.04-1.284 1.332-2.053.283-.749.455-1.653.513-2.913.001-.058.026-1.26.026-1.26V8.732c0-.812.026-1.217.026-1.217-.058-1.26-.229-2.164-.513-2.913-.292-.769-.696-1.417-1.332-2.053S20.169.831 19.399.539c-.749-.283-1.653-.455-2.913-.513C15.584.012 15.276 0 12 0zm0 5.828c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163S15.403 5.828 12 5.828zm0 10.329c-2.303 0-4.162-1.859-4.162-4.166s1.859-4.166 4.162-4.166 4.162 1.859 4.162 4.166S14.303 16.157 12 16.157zm6.406-9.994c0 .798-.646 1.444-1.444 1.444s-1.444-.646-1.444-1.444.646-1.444 1.444-1.444 1.444.646 1.444 1.444z"/></svg>
+                        </a>
+                         <a href="https://google.pl" target="_blank" rel="noopener noreferrer" title="TikTok">
+                            <svg class="w-6 h-6 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="text-xs text-gray-400 space-x-4 mt-4">
+                        <a href="regulamin.html" target="_blank" rel="noopener noreferrer" class="hover:text-white">Regulamin</a>
+                        <span>|</span>
+                        <a href="polityka-prywatnosci.html" target="_blank" rel="noopener noreferrer" class="hover:text-white">Polityka Prywatności</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Zamknij wszystkie inne otwarte odpowiedzi
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('open')) {
+                            otherItem.classList.remove('open');
+                        }
+                    });
+                    // Otwórz lub zamknij klikniętą odpowiedź
+                    item.classList.toggle('open');
+                });
+            });
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
