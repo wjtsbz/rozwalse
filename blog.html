@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozwal Se! Rage Room Kraków 😎</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth; 
+        }
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #111111; 
+            color: #F5F5F5; 
+        }
+        .font-bebas {
+            font-family: 'Bebas Neue', cursive;
+        }
+        .font-chakra {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(17, 17, 17, 0.8); 
+            backdrop-filter: blur(10px);
+        }
+        .btn-primary { 
+            @apply inline-block bg-gradient-to-br from-orange-500 to-orange-600 text-white font-bebas text-2xl py-3 px-8 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-orange-500/40 transform transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-orange-700;
+        }
+        .btn-secondary { 
+            @apply inline-block bg-transparent border-2 border-orange-500 hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-600 text-orange-500 hover:text-white font-bebas text-xl py-3 px-8 rounded-lg transform transition-all duration-300 hover:scale-105;
+        }
+        .section-title {
+            @apply font-bebas text-5xl md:text-7xl text-center mb-4 text-red-500;
+        }
+        .section-subtitle {
+            @apply font-chakra text-xl md:text-2xl text-center text-gray-300 mb-12 max-w-3xl mx-auto;
+        }
+        .package-card {
+            @apply bg-neutral-800 p-10 rounded-xl shadow-2xl border-2 border-neutral-700 transition-all duration-300 flex flex-col justify-between;
+        }
+        .package-card:hover {
+            @apply border-orange-500;
+            box-shadow: 0 0 60px rgba(249, 115, 22, 0.7);
+        }
+        
+        .cracked-text {
+            text-shadow: 1px 1px 0px #FF6B6B, 
+                         -1px -1px 0px #FF6B6B,
+                         1px -1px 0px #FF6B6B,
+                         -1px 1px 0px #FF6B6B,
+                         0 0 5px #FF4500, 
+                         0 0 10px #FF4500;
+            animation: flicker 3s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                1px 1px 0px #FF6B6B,
+                -1px -1px 0px #FF6B6B,
+                1px -1px 0px #FF6B6B,
+                -1px 1px 0px #FF6B6B,
+                0 0 5px #FF4500,
+                0 0 10px #FF4500,
+                0 0 2px rgba(255,0,0,0.2), 
+                0 0 5px rgba(255,0,0,0.2),
+                0 0 10px rgba(255,0,0,0.2);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+        
+        .glass-break-sound:hover::after {
+            content: "🔊 (dźwięk tłuczonego szkła)";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .hero-headline-styling { 
+            @apply font-bebas text-white uppercase mb-12 md:mb-16 lg:mb-20; 
+            line-height: 0.90 !important; 
+        }
+        .hero-line-uniform { 
+            font-size: 85px !important; 
+        }
+        .hero-line-spaced { 
+            font-size: 85px !important; 
+            margin-top: 10px !important;
+        }
+        .hero-line-legalnie { 
+            font-size: 100px !important; 
+            margin-top: 10px !important; 
+        }
+
+        @keyframes subtle-pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.03); 
+                opacity: 0.9;  
+            }
+        }
+
+        .legalnie-pulse-effect {
+            animation: subtle-pulse 2.2s infinite ease-in-out;
+            display: inline-block; 
+            will-change: transform, opacity; 
+        }
+
+        @media (max-width: 768px) { 
+            .hero-line-uniform { font-size: 55px !important; }
+            .hero-line-spaced { 
+                font-size: 55px !important; 
+                margin-top: 5px !important;
+            }
+            .hero-line-legalnie { 
+                font-size: 65px !important; 
+                margin-top: 5px !important;
+            }
+        }
+        @media (max-width: 640px) { 
+            .hero-line-uniform { font-size: 40px !important; }
+            .hero-line-spaced { 
+                font-size: 40px !important; 
+                margin-top: 5px !important;
+            }
+            .hero-line-legalnie { 
+                font-size: 50px !important; 
+                margin-top: 5px !important;
+            }
+        }
+        .step-description {
+            @apply text-gray-300 text-justify leading-relaxed; 
+        }
+        .step-description-accent {
+            @apply block mt-2 text-sm text-gray-300; 
+        }
+        .step-number-container {
+            @apply w-20 h-20 bg-red-700 border-2 border-orange-500 text-white flex items-center justify-center rounded-full mx-auto mb-6 shadow-lg relative overflow-hidden;
+            background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent);
+            background-size: 30px 30px;
+        }
+        .step-number {
+            @apply font-bebas text-5xl text-orange-300; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+        }
+        
+        section[id], header[id] {
+            scroll-margin-top: 100px; 
+        }
+        
+        .footer-logo { 
+            height: 4rem !important; 
+        }
+        @media (min-width: 768px) { 
+            .footer-logo {
+                height: 8rem !important; 
+            }
+        }
+
+        #hero-video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transform: translate(-50%, -50%);
+            z-index: -1; 
+        }
+        .hero-content-container { 
+            position: relative;
+            z-index: 10;
+        }
+       
+        .testimonials-container {
+            height: 250px; 
+            overflow-y: hidden; 
+            position: relative;
+        }
+        .testimonials-wrapper {
+            animation: scroll-testimonials 30s linear infinite; 
+        }
+        .testimonial-item {
+            @apply bg-neutral-900 p-4 mb-4 rounded-lg shadow-md border-2 border-orange-500; 
+        }
+        @keyframes scroll-testimonials {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); } 
+        }
+
+        .reels-grid {
+            @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 max-w-3xl;
+        }
+        
+        .section-divider {
+            width: 6rem;
+            height: 0.25rem;
+            background-color: #f97316;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            border-radius: 9999px;
+        }
+
+        .btn-underline {
+            position: relative;
+            display: inline-block;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.25rem;
+            color: #fb923c;
+            transition: color 0.3s;
+            text-decoration: none;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .btn-underline:hover {
+            color: #fdba74;
+        }
+
+        .btn-underline::after {
+            content: '';
+            position: absolute;
+            width: 110%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: -5%;
+            background-color: #f97316;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .btn-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Language switcher hover effects */
+        .hover-lang-en:hover {
+            @apply bg-gradient-to-r from-blue-600 via-white to-red-600 text-transparent bg-clip-text;
+        }
+        .hover-lang-ua:hover {
+            @apply bg-gradient-to-b from-blue-500 to-yellow-400 text-transparent bg-clip-text;
+        }
+        .hover-lang-es:hover {
+            @apply bg-gradient-to-b from-yellow-400 to-red-600 text-transparent bg-clip-text;
+        }
+        .hover-lang-pt:hover {
+            @apply bg-gradient-to-r from-green-600 to-red-600 text-transparent bg-clip-text;
+        }
+
+        /* Blog Modal Styles */
+        #blog-modal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        #modal-content-box {
+            transition: transform 0.3s ease-in-out;
+        }
+
+    </style>
+</head>
+<body class="bg-neutral-900 text-gray-100">
+
+    <nav id="navbar" class="nav-sticky p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="index.html">
+                    <img src="img/Logo_3.png" alt="Logo Rage Room Kraków" class="h-12 md:h-16 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x50/111111/FF0000?text=LOGO';">
+                </a>
+                <!-- <div class="hidden md:flex items-baseline space-x-3 text-sm font-bebas border-l-2 border-neutral-700 pl-6">
+                    <span class="text-white opacity-50 cursor-default" title="Polski">PL</span>
+                    <span class="text-neutral-600">|</span>
+                    <a href="index-en.html" class="text-white hover:bg-gradient-to-r hover:from-blue-600 hover:via-white hover:to-red-600 hover:text-transparent hover:bg-clip-text transition-all" title="English">EN</a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="index-ua.html" class="text-white hover:bg-gradient-to-b hover:from-blue-500 hover:to-yellow-400 hover:text-transparent hover:bg-clip-text transition-all" title="Українська">UA</a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="index-es.html" class="text-white hover:bg-gradient-to-b hover:from-yellow-400 hover:to-red-600 hover:text-transparent hover:bg-clip-text transition-all" title="Español">ES</a>
+                </div> --> 
+            </div>
+            <div class="hidden md:flex space-x-6 items-center font-bebas text-xl">
+                <a href="#jak-to-dziala" class="nav-link hover:text-red-500 transition-colors">Jak to działa?</a>
+                <a href="#pakiety" class="nav-link hover:text-red-500 transition-colors">Pakiety</a>
+                <a href="#dlaczego-my" class="nav-link hover:text-red-500 transition-colors">Dlaczego My?</a>
+                <a href="#blog" class="nav-link hover:text-red-500 transition-colors">Blog</a>
+                <a href="#galeria" class="nav-link hover:text-red-500 transition-colors">Galeria</a>
+                <a href="#kontakt" class="nav-link hover:text-red-500 transition-colors">Kontakt</a>
+                <a href="#bezpieczenstwo" class="nav-link hover:text-red-500 transition-colors">Bezpieczeństwo</a>
+                <a href="faq.html" class="nav-link hover:text-red-500 transition-colors">FAQ</a>
+                <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white font-bebas text-2xl !py-2 !px-6 rounded-lg transform transition-all duration-300 hover:scale-105 glass-break-sound-btn">
+                   ZAREZERWUJ!
+                </a> 
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-800">
+            <a href="#jak-to-dziala" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Jak to działa?</a>
+            <a href="#pakiety" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Pakiety</a>
+            <a href="#dlaczego-my" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Dlaczego My?</a>
+            <a href="#blog" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Blog</a>
+            <a href="#galeria" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Galeria</a>
+            <a href="#kontakt" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Kontakt</a>
+            <a href="#bezpieczenstwo" class="nav-link block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">Bezpieczeństwo</a>
+            <a href="faq.html" class="block py-3 px-4 text-lg hover:bg-red-700 transition-colors font-bebas">FAQ</a>
+            <div class="flex justify-center space-x-4 py-4 border-t border-b border-neutral-700">
+                <span class="font-bebas text-xl text-white opacity-50 cursor-default">PL</span>
+                <span class="text-neutral-500">|</span>
+                <a href="en.html" class="font-bebas text-xl text-white hover-lang-en transition-all">EN</a>
+                <span class="text-neutral-500">|</span>
+                <a href="ua.html" class="font-bebas text-xl text-white hover-lang-ua transition-all">UA</a>
+                <span class="text-neutral-500">|</span>
+                <a href="es.html" class="font-bebas text-xl text-white hover-lang-es transition-all">ES</a>
+            </div>
+            <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" 
+               class="block py-4 text-center transition-colors font-bebas glass-break-sound-btn inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white text-2xl rounded-lg transform hover:scale-105 w-full">
+               ZAREZERWUJ!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Reszta strony (Hero, Jak to działa, Pakiety, etc.) pozostaje bez zmian -->
+    <!-- ... -->
+    
+    <section id="blog" class="pt-10 pb-20 bg-neutral-800">
+        <div class="container mx-auto px-6">
+            <div class="section-divider"></div>
+            <h2 class="section-title !mb-12 text-center text-2xl">BLOG: <span class="text-orange-500">WIEDZA I DEMOLKA</span></h2>
+            <div id="blog-posts" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Artykuły będą wstawiane tutaj przez JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- ... -->
+
+    <!-- Modal (Pop-up) dla artykułów bloga -->
+    <div id="blog-modal" class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50 opacity-0 invisible">
+        <div id="modal-content-box" class="bg-neutral-800 border-2 border-orange-500/50 rounded-xl shadow-2xl p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative transform scale-95">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img id="modal-image" src="" alt="Zdjęcie artykułu" class="w-full h-64 object-cover rounded-lg mb-6">
+            <h1 id="modal-title" class="font-bebas text-5xl text-orange-500 mb-4"></h1>
+            <div id="modal-text" class="modal-content">
+                <!-- Treść artykułu będzie wstawiana tutaj -->
+            </div>
+        </div>
+    </div>
+    
+        <footer class="py-4 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <!-- Lewa strona stopki -->
+                <div class="mb-4 md:mb-0">
+                    <img src="img/Logo_3.png" alt="Logo Rage Room Kraków" class="footer-logo mx-auto md:mx-0 mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x60/000000/FF0000?text=LOGO';">
+                    <p class="text-gray-400 text-sm">© <span id="currentYear"></span> Rage Room Kraków. Wszelkie prawa zastrzeżone.</p>
+                    <p class="text-gray-500 text-xs mt-1">Rozwal to legalnie!</p>
+                </div>
+
+                <!-- Prawa strona stopki -->
+                <div class="text-center md:text-right">
+                    <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                         <a href="https://google.pl" target="_blank" rel="noopener noreferrer" title="Facebook">
+                            <svg class="w-6 h-6 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.407.593 24 1.324 24h11.494v-9.294H9.692v-3.622h3.126V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.324V1.324C24 .593 23.407 0 22.676 0z"/></svg>
+                        </a>
+                        <a href="https://google.pl" target="_blank" rel="noopener noreferrer" title="Instagram">
+                            <svg class="w-6 h-6 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.172.053 1.791.218 2.166.366.476.183.826.396 1.18.75.354.354.566.704.75 1.18.147.375.313.994.366 2.166.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.053 1.172-.218 1.791-.366 2.166-.184.475-.396.826-.75 1.18-.354.354-.704.566-1.18.75-.375.147-.994.313-2.166.366-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.172-.053-1.791-.218-2.166-.366-.475-.184-.826-.396-1.18-.75-.354-.354-.566-.704-.75-1.18-.147-.375-.313-.994-.366-2.166-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.053-1.172.218-1.791.366-2.166.184-.475.396-.826.75-1.18.354-.354.704-.566 1.18-.75.375-.147.994-.313 2.166-.366C8.416 2.175 8.796 2.163 12 2.163m0-1.631C8.724.532 8.318.544 7.053.603c-1.26.058-2.164.229-2.913.513-.769.292-1.417.696-2.053 1.332S.831 3.833.539 4.602C.256 5.351.084 6.255.026 7.515C.026 7.515 0 7.92.001 8.732v6.535c-.001.812.026 1.217.026 1.217.058 1.26.229 2.164.513 2.913.292.769.696 1.417 1.332 2.053s1.283.998 2.053 1.332c.749.283 1.653.455 2.913.513.058.001 1.26.026 1.26.026h6.535c.812 0 1.217-.026 1.217-.026 1.26-.058 2.164-.229 2.913-.513.769-.292 1.417-.696 2.053-1.332.636-.636 1.04-1.284 1.332-2.053.283-.749.455-1.653.513-2.913.001-.058.026-1.26.026-1.26V8.732c0-.812.026-1.217.026-1.217-.058-1.26-.229-2.164-.513-2.913-.292-.769-.696-1.417-1.332-2.053S20.169.831 19.399.539c-.749-.283-1.653-.455-2.913-.513C15.584.012 15.276 0 12 0zm0 5.828c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163S15.403 5.828 12 5.828zm0 10.329c-2.303 0-4.162-1.859-4.162-4.166s1.859-4.166 4.162-4.166 4.162 1.859 4.162 4.166S14.303 16.157 12 16.157zm6.406-9.994c0 .798-.646 1.444-1.444 1.444s-1.444-.646-1.444-1.444.646-1.444 1.444-1.444 1.444.646 1.444 1.444z"/></svg>
+                        </a>
+                         <a href="https://google.pl" target="_blank" rel="noopener noreferrer" title="TikTok">
+                            <svg class="w-6 h-6 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="text-xs text-gray-400 space-x-4 mt-4">
+                        <a href="regulamin.html" target="_blank" rel="noopener noreferrer" class="hover:text-white">Regulamin</a>
+                        <span>|</span>
+                        <a href="polityka-prywatnosci.html" target="_blank" rel="noopener noreferrer" class="hover:text-white">Polityka Prywatności</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            if (anchor.getAttribute('href').startsWith('#')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+        
+        const glassSoundButtons = document.querySelectorAll('.glass-break-sound-btn');
+        if (typeof Tone !== 'undefined') {
+            const synth = new Tone.NoiseSynth({
+                noise: { type: 'white' },
+                envelope: { attack: 0.001, decay: 0.05, sustain: 0, release: 0.05 },
+            }).toDestination();
+            const filter = new Tone.Filter(1000, "highpass").toDestination();
+            synth.connect(filter);
+            
+            glassSoundButtons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    if (Tone.context.state !== 'running') {
+                        Tone.start().catch(e => console.error("Tone.js start error on mouseenter:", e));
+                    }
+                    try {
+                        synth.triggerAttackRelease("8n", Tone.now());
+                    } catch (error) {
+                        console.warn("Tone.js error on trigger:", error);
+                    }
+                });
+            });
+
+            function startAudioContext() {
+                if (Tone.context.state !== 'running') {
+                    Tone.start().then(() => {
+                        console.log("AudioContext started by user interaction.");
+                    }).catch(e => {
+                        console.error("Error starting AudioContext:", e);
+                    });
+                }
+                document.body.removeEventListener('click', startAudioContext);
+                document.body.removeEventListener('touchstart', startAudioContext);
+            }
+            document.body.addEventListener('click', startAudioContext, { once: true });
+            document.body.addEventListener('touchstart', startAudioContext, { once: true });
+        } else {
+            console.warn("Tone.js library not loaded.");
+        }
+
+        // --- BLOG SCRIPT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const postsContainer = document.getElementById('blog-posts');
+            const modal = document.getElementById('blog-modal');
+            const modalContentBox = document.getElementById('modal-content-box');
+            const closeModalBtn = document.getElementById('close-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalText = document.getElementById('modal-text');
+
+            const articles = [
+                {
+                    
+                    id: 1,
+                    image: 'https://placehold.co/600x400/16a34a/FFFFFF?text=Emocje',
+                    date: '23 LIP 2025',
+                    readTime: '3 MIN',
+                    title: 'Masz Prawo Być Wkurzony. Oto Jak Zrobić To Dobrze.',
+                    excerpt: 'Każdego dnia czujesz całą masę rzeczy. Radość, jak ci się coś uda. Smutek, jak coś pójdzie nie tak. Ale są też te inne emocje. Te, o których nikt nie lubi gadać.',
+                    fullText: `
+                    
+                    
+                        <h2 class="font-bebas text-3xl text-white-500 mt-4 mb-4">Emocje, o których nikt nie lubi gadać.</h2>
+                        <p class="mb-4 text-gray-300 leading-relaxed"><Strong>Frustracja</Strong>, kiedy stoisz w korku, a czas ucieka.</p>
+                        <p class="mb-4 text-gray-300 leading-relaxed"><Strong>Gniew</Strong>, kiedy szef po raz setny traktuje Cię jak wariata.</p>
+                        <p class="mb-4 text-gray-300 leading-relaxed"><Strong>Bezsilność</Strong>, kiedy nic nie idzie po Twojej myśli.</p>
+                        
+                         <p class="mb-4 text-gray-300 leading-relaxed">To nie są "złe" emocje. To są sygnały. To jest system alarmowy twojego organizmu, który krzyczy: "Hej, coś jest nie tak! Zrób coś z tym!".</p>
+                        
+                        <h2 class="font-bebas text-3xl text-white-500 mt-4 mb-4">Problem: Nikt nas nie nauczył, co z tym robić</h2> 
+                        <p class="mb-4 text-gray-300 leading-relaxed">Od dziecka słyszymy: "nie złość się", "uspokój się", "bądź grzeczny". Uczymy się tłumić te sygnały. Wciskać je głęboko do środka i udawać, że nic się nie stało.
+
+                        To jest najgorsze, co możesz sobie zrobić.
+
+                        Naukowcy (tacy goście jak Gross czy Levenson) udowodnili to dawno temu: chroniczne tłumienie wkurzenia to prosta droga do problemów. Napięciowe bóle głowy, problemy z żołądkiem, bezsenność, a w dłuższej perspektywie – stany lękowe i depresja. To jest cena, jaką płacisz za bycie "spokojnym".</p>
+                        
+                        <h2 class="font-bebas text-3xl text-white-500 mt-4 mb-4">Jakie są opcje? Techniki, które działają (i te, które nie)</h2>
+                        <p class="mb-4 text-gray-300 leading-relaxed">Ludzie wymyślili setki sposobów na radzenie sobie ze stresem. Jedne działają, inne to strata czasu.</p>
+                        <p class="mb-4 text-gray-300 leading-relaxed">1. Techniki Relaksacyjne (Działają, ale...): Medytacja, ćwiczenia oddechowe, joga. To wszystko jest super, jeśli masz czas i cierpliwość, żeby siedzieć w ciszy, kiedy w środku wszystko w tobie kipi. To jest jak gaszenie pożaru szklanką wody. Czasem pomoże, ale jak ogień jest duży, to potrzebujesz czegoś mocniejszego.</p>
+                        <p class="mb-4 text-gray-300 leading-relaxed">2. Ekspresja Artystyczna (Dla nielicznych): Malowanie, pisanie, granie na instrumencie. Świetna sprawa, jeśli masz talent. Ale większość z nas, kiedy jest wkurzona, nie ma ochoty pisać wierszy, tylko coś rozwalić.</p>
+                        <p class="mb-4 text-gray-300 leading-relaxed">3. Aktywność Fizyczna (To już lepiej): Bieganie, siłownia, worek treningowy. To jest już konkret. Pozwala uwolnić nagromadzoną energię i zmęczyć ciało, co uspokaja umysł. To jest bardzo dobra droga.</p>
+                        <p class="mb-4 text-gray-300 leading-relaxed">Ale co, jeśli potrzebujesz czegoś więcej? Czegoś, co jest bezpośrednią odpowiedzią na to, czego nie lubimy?</p>
+                        
+                        <h2 class="font-bebas text-3xl text-white-500 mt-4 mb-4">Rozwiązanie: Kontrolowana Demolka</h2>
+                        <p class="mb-4 text-gray-300 leading-relaxed">Jest jeszcze jedna metoda. Taka, która nie polega na oszukiwaniu swojego mózgu, że jesteś spokojny, kiedy nie jesteś. Taka, która pozwala ci wreszcie zrobić to, na co masz ochotę, ale w bezpieczny i kontrolowany sposób.
+
+                        Mówimy o fizycznym uwolnieniu emocji. O wzięciu do ręki młota i rozwaleniu czegoś na kawałki.
+
+                        To nie jest terapia. To jest higiena psychiczna. To jest jak prysznic dla twojej głowy. Zmywasz z siebie cały ten brud, który nazbierał się przez cały tydzień.</p>
+                    
+                        <h2 class="font-bebas text-3xl text-white-500 mt-4 mb-4">My znamy na to najlepszy sposób.</h2>                    
+                        <p class="mb-4 text-gray-300 leading-relaxed">  <a href="https://tojesttestowastrona.bookero.pl/" target="_blank" rel="noopener noreferrer" 
+                        class="inline-block bg-neutral-800 bg-opacity-75 border-2 border-orange-500 hover:bg-orange-500 text-white font-bebas text-2xl !py-2 !px-6 rounded-lg transform transition-all duration-300 hover:scale-105 glass-break-sound-btn">
+                        ROZWAL SE!</a></p>
+                    
+                    `
+                }
+
+                
+            ];
+
+            if (postsContainer) {
+                articles.forEach(article => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('bg-neutral-900', 'rounded-lg', 'shadow-xl', 'overflow-hidden', 'flex', 'flex-col');
+                    postElement.innerHTML = `
+                        <div class="relative">
+                            <img src="${article.image}" alt="Zdjęcie do artykułu: ${article.title}" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 left-0 bg-black bg-opacity-60 text-white text-xs font-bebas p-2 rounded-tr-lg">
+                                <span>${article.date}</span> | <span>${article.readTime} CZYTANIA</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-bebas text-2xl text-orange-400 mb-2">${article.title}</h3>
+                            <p class="text-gray-400 text-sm flex-grow">${article.excerpt}</p>
+                            <div class="mt-4">
+                                <button data-id="${article.id}" class="read-more-btn btn-underline glass-break-sound-btn">Czytaj więcej</button>
+                            </div>
+                        </div>
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+
+                const readMoreBtns = document.querySelectorAll('.read-more-btn');
+                readMoreBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const articleId = parseInt(btn.dataset.id);
+                        const article = articles.find(a => a.id === articleId);
+                        
+                        if (article) {
+                            modalImage.src = article.image;
+                            modalTitle.textContent = article.title;
+                            modalText.innerHTML = article.fullText;
+                            
+                            modal.classList.remove('hidden');
+                            setTimeout(() => {
+                                modal.classList.remove('opacity-0', 'invisible');
+                                modalContentBox.classList.remove('scale-95');
+                            }, 10);
+                            document.body.style.overflow = 'hidden';
+                        }
+                    });
+                });
+            }
+
+            function hideModal() {
+                modal.classList.add('opacity-0');
+                modalContentBox.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden', 'invisible');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', hideModal);
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        hideModal();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
